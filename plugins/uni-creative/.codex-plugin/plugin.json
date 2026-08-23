@@ -1,0 +1,9 @@
+{
+  "name": "uni-creative",
+  "version": "0.4.0",
+  "description": "Creative briefs with visual references, and ad concept ideation from competitor research.",
+  "author": {
+    "name": "UNI Marketing Agency"
+  },
+  "skills": "./skills/"
+}

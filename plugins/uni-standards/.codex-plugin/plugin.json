@@ -1,0 +1,9 @@
+{
+  "name": "uni-standards",
+  "version": "0.4.0",
+  "description": "UNI house output standard and internal QA review. Everyone installs this.",
+  "author": {
+    "name": "UNI Marketing Agency"
+  },
+  "skills": "./skills/"
+}

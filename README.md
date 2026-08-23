@@ -2,24 +2,23 @@
 
 The shared skill store for UNI Marketing Agency. Install once, get every update automatically, propose improvements by pull request.
 
-**This repo is private and stays private.** Everyone with access reads every file.
+This repo is public so the team can install and test without a GitHub invite. Skills contain no client names, spend, or account IDs. Still never commit those.
 
 ---
 
 ## Install
 
-UNI is currently on individual Pro/Max seats, so each person installs it themselves. Takes two minutes.
+Click-by-click setup for teammates: https://claude.ai/code/artifact/6f405020-c0f0-48ec-b28c-cc5e76967ca1
+
+See [INSTALL.md](INSTALL.md) for the full guide per app. Summary below.
+
+UNI is currently on individual Pro/Max seats, so each person installs it themselves.
 
 ### Cowork / Claude desktop
 
-1. Open **Customize** in the left sidebar (in Cowork, open the **Cowork** tab first)
-2. Go to the **Plugins** tab
-3. Under Personal plugins, click **+** → **Add marketplace** → **Add from a repository**
-4. Enter `seant15/uni-team-skill`
-5. Install the plugins for your role (below)
-6. **Fully restart the app.** Plugins only load on startup.
+Follow the click-by-click setup first: https://claude.ai/code/artifact/6f405020-c0f0-48ec-b28c-cc5e76967ca1
 
-You need GitHub access to the repo - ask Sean for an invite and accept it before step 4.
+Or: Cowork tab → **Customize** → **Plugins** → add marketplace `seant15/uni-team-skill`. Zip files in `dist/` are the fallback. Then **start a new session**. Full walkthrough in INSTALL.md.
 
 ### Claude Code
 
@@ -27,9 +26,15 @@ You need GitHub access to the repo - ask Sean for an invite and accept it before
 /plugin marketplace add seant15/uni-team-skill
 /plugin install uni-standards@uni-team-skill
 /plugin install uni-paid@uni-team-skill
+/reload-plugins
 ```
 
-Then fully restart.
+### Codex
+
+```
+codex plugin marketplace add seant15/uni-team-skill
+codex plugin add uni-standards@uni-team-skill
+```
 
 ### Which plugins do I install?
 
@@ -44,7 +49,7 @@ Then fully restart.
 
 ### Updating
 
-Changes reach you when Sean bumps the version and you sync. In Cowork the marketplace refreshes on its own; in Claude Code run `/plugin marketplace update`. **Restart the app after any update.**
+Cowork: Sean sends new zips, upload them again, start a new session. Claude Code: `/plugin marketplace update uni-team-skill` then `/reload-plugins`. Codex: `codex plugin marketplace upgrade uni-team-skill`.
 
 ---
 
@@ -71,13 +76,33 @@ Changes reach you when Sean bumps the version and you sync. In Cowork the market
 
 ---
 
+## Runs on Claude and Codex
+
+One repo, both toolchains, one copy of every skill.
+
+| | Claude Code / Cowork | Codex |
+|---|---|---|
+| Marketplace | `.claude-plugin/marketplace.json` | `.agents/plugins/marketplace.json` |
+| Plugin manifest | `plugins/<name>/.claude-plugin/plugin.json` | `plugins/<name>/.codex-plugin/plugin.json` |
+| Skills | `plugins/<name>/skills/<skill>/SKILL.md` | same files |
+
+The skills are shared, not duplicated. Both tools read the same `SKILL.md` with the same `name` and `description` frontmatter.
+
+**When you add or change a plugin, update both manifests.** Bumping only one means half the team stops getting updates and nobody notices for a month.
+
+Skill bodies are written provider-neutrally - they say "the model", never "Claude" - so they read correctly in either tool. Keep it that way.
+
+Cursor, Gemini CLI and Windsurf also read `SKILL.md` and can load these from `~/.agents/skills/`. Untested by us.
+
+---
+
 ## House rules
 
 **1. Edit here and push. Never edit your installed copy.** The next sync overwrites it and the work is gone.
 
 **2. `main` is protected. Changes arrive as pull requests.** Sean approves. Two-line diffs still get read. *Second reviewer: currently none - this is a known single point of failure. Revisit when the team grows.*
 
-**3. Bump the version in `plugin.json` or nothing ships.** A merge without a version bump sits in the repo doing nothing. Also bump the matching entry in `.claude-plugin/marketplace.json`.
+**3. Bump the version in both plugin manifests or nothing ships.** A merge without a version bump sits in the repo doing nothing. Touch all four files in rule 8.
 
 **4. Never commit client names, ad account IDs, spend figures, API keys, or PII.** Golden samples must be anonymised before they land here.
 
@@ -87,7 +112,9 @@ Changes reach you when Sean bumps the version and you sync. In Cowork the market
 
 **7. No em dashes, no en dashes. Hyphens only.** This applies to every file in this repo and to everything the skills produce. It is check 0 on the output gate.
 
-**8. Facts get tagged.** Any platform limit or spec written into a reference file carries a verification date and a source URL. If you can't source it, mark it unverified rather than guessing.
+**8. Both manifests, every time.** A version bump touches `.claude-plugin/` and `.codex-plugin/` and the two marketplace files. Update one and half the team silently stops receiving changes.
+
+**9. Facts get tagged.** Any platform limit or spec written into a reference file carries a verification date and a source URL. If you can't source it, mark it unverified rather than guessing.
 
 ---
 
@@ -121,10 +148,11 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.3.0. Seven skills, three plugins, six golden samples, 302-interest seed library.
+v0.4.0. Seven skills, three plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present.
 
 **Not done yet:**
 - First validation pass on `interest-library.md` - all 302 rows are `unconfirmed` and none carry Meta interest IDs
 - `uni-seo` plugin - parked until the first three are proven
 - Migration of the remaining skills from Sean's personal account
 - Second PR reviewer
+- Team or Enterprise plan later, so org-level install can replace per-seat setup. See INSTALL.md.
