@@ -1,0 +1,41 @@
+{
+  "name": "uni-team-skill",
+  "interface": {
+    "displayName": "UNI Team Skills"
+  },
+  "plugins": [
+    {
+      "name": "uni-standards",
+      "source": {
+        "source": "local",
+        "path": "./plugins/uni-standards"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "uni-creative",
+      "source": {
+        "source": "local",
+        "path": "./plugins/uni-creative"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "uni-paid",
+      "source": {
+        "source": "local",
+        "path": "./plugins/uni-paid"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -4,9 +4,13 @@
 
 1. Branch off `main`. Short-lived - hours to a day or two.
 2. Make the change **in this repo**, never in your installed copy.
-3. Bump `version` in the plugin's `.claude-plugin/plugin.json` **and** the matching entry in `.claude-plugin/marketplace.json`. Patch for a wording fix, minor for a new skill or a changed method.
-4. Open a PR. Say in one line what changed and what problem it solves.
-5. Sean reviews and merges. Squash merge, delete the branch.
+3. Bump `version` in **both** `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json`, plus the matching entry in `.claude-plugin/marketplace.json`. If you add or remove a plugin, also update `.agents/plugins/marketplace.json`. A version bump that ships to both toolchains touches four files. Patch for a wording fix, minor for a new skill or a changed method.
+4. Rebuild the zips in `dist/` - that is how Cowork users receive it:
+   ```
+   cd plugins && for p in uni-standards uni-creative uni-paid; do zip -qr ../dist/$p.zip $p; done
+   ```
+5. Open a PR. Say in one line what changed and what problem it solves.
+6. Sean reviews and merges. Squash merge, delete the branch.
 
 Never push directly to `main`.
 
