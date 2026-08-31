@@ -1,0 +1,9 @@
+{
+  "name": "uni-seo",
+  "version": "0.1.0",
+  "description": "UNI client SEO approval packets: Sheet or Drive intake, gates, local lock, client-facing Google Doc. Never publish.",
+  "author": {
+    "name": "UNI Marketing Agency"
+  },
+  "skills": "./skills/"
+}

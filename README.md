@@ -44,6 +44,7 @@ codex plugin add uni-standards@uni-team-skill
 | Google media buyer | `uni-standards` + `uni-paid` |
 | Creative strategist | `uni-standards` + `uni-creative` |
 | General team / assistants | `uni-standards` |
+| SEO / content | `uni-standards` + `uni-seo` |
 
 **Everyone installs `uni-standards`.** It holds the output standard every deliverable passes through.
 
@@ -73,6 +74,11 @@ Cowork: Sean sends new zips, upload them again, start a new session. Claude Code
 | `meta-ad-copy` | Meta copy inside the official limits and in the client's register. Holds the locked character reference. |
 | `google-ad-copy` | Google copy written to the specific campaign type's spec - RSA, PMax, Demand Gen, Display, App all differ. |
 | `meta-targeting` | The UNI interest-web method. Expands a persona across life dimensions and two-step adjacencies, validates every interest, delivers a tiered test plan. |
+
+### uni-seo
+| Skill | Does |
+|---|---|
+| `uni-2026-seo` | Client SEO approval packet. Sheet or Drive intake, official-page facts, Search Console URL choice, local lock, client-facing Google Doc. Stops at draft. Never publishes. |
 
 ---
 
@@ -148,11 +154,11 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.4.0. Seven skills, three plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present.
+v0.5.0 standards / creative / paid. `uni-seo` 0.1.0. Eight skills, four plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards`.
 
 **Not done yet:**
 - First validation pass on `interest-library.md` - all 302 rows are `unconfirmed` and none carry Meta interest IDs
-- `uni-seo` plugin - parked until the first three are proven
+- Cowork zip + marketplace install check for `uni-seo` on a fresh seat
 - Migration of the remaining skills from Sean's personal account
 - Second PR reviewer
 - Team or Enterprise plan later, so org-level install can replace per-seat setup. See INSTALL.md.

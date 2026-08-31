@@ -36,6 +36,17 @@
         "installation": "AVAILABLE"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "uni-seo",
+      "source": {
+        "source": "local",
+        "path": "./plugins/uni-seo"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Productivity"
     }
   ]
 }

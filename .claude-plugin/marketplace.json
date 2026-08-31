@@ -22,6 +22,12 @@
       "source": "./plugins/uni-paid",
       "description": "Meta and Google ad copy inside official character limits, plus Meta interest targeting.",
       "version": "0.5.0"
+    },
+    {
+      "name": "uni-seo",
+      "source": "./plugins/uni-seo",
+      "description": "UNI client SEO approval packets: Sheet or Drive intake, gates, local lock, client-facing Google Doc. Never publish.",
+      "version": "0.1.0"
     }
   ]
 }
