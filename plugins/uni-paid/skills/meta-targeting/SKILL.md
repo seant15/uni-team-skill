@@ -108,6 +108,24 @@ Target roughly **one-third direct, two-thirds two-step** in the final set. If th
 
 The library is a seed list, not an authority. **Every row still gets validated before it reaches a client deliverable.**
 
+### The name field is a search string, not a description
+
+This is the rule the deliverable dies on. A media buyer took `Aesthetic motherhood / cottagecore mom content`, `Dr. Becky Kennedy / gentle parenting creators` and `Mommy and Me (fashion/lifestyle)` to Ads Manager, could not find any of them, and lost the whole cluster.
+
+**The `name` field must be a literal string the buyer can type into the detailed-targeting search box.** `TJ Maxx`. `Cricut`. `Gymnastics`. `Carter's`. Short, a proper noun or a platform category, one thing.
+
+Everything that made you choose it - the persona, the aesthetic, the creator whose audience you are approximating - goes in `Chain`. **A persona in the `name` field is a P1, no matter how good the reasoning behind it is.** The reasoning is not what the buyer pastes.
+
+Three signatures the lint rejects, and you should reject before it does:
+
+| Reject | Why | Do instead |
+|---|---|---|
+| `Aesthetic motherhood / cottagecore mom content` | genre description, not a taxonomy entry | put the aesthetic in `Chain`, name a brand or category the platform actually carries |
+| `Dr. Becky Kennedy / gentle parenting creators` | a creator plus an audience guess, joined by a slash | one row per searchable label. Search the person's name alone and see whether Meta carries it. |
+| `Church / Christian parenting content engagers` | two concepts and a behaviour invented in-house | `Hobby Lobby`, `Vacation Bible School` - things that exist |
+
+If the honest answer is that no platform interest expresses the idea, **say that instead of inventing a label.** A named gap is useful; a plausible string is a trap.
+
 ### Validate every candidate exists
 
 Interest names drift and Meta deletes without notice. **A name is not proof an interest exists.**
@@ -115,7 +133,22 @@ Interest names drift and Meta deletes without notice. **A name is not proof an i
 - In Ads Manager: type it into the detailed targeting search box. If it does not appear, it is gone. Record the **audience size** shown.
 - Via API where available: `GET /v26.0/search?type=adinterest&q=<name>&limit=1000`, and validate with `type=adinterestvalid`. **Store the interest ID, not the name** - names are renamed, IDs are stable. See `references/platform-reality-2026.md` for the full endpoint set.
 
-Anything that cannot be confirmed to exist does not go in the deliverable. Mark it "not found" rather than dropping it silently - that is useful information about the current state of Meta's taxonomy.
+Anything that cannot be confirmed to exist does not go in the deliverable as a confirmed row. Mark it rather than dropping it silently - that is useful information about the current state of Meta's taxonomy.
+
+**Two statuses, and only two:**
+
+| `status` | Means | Requires |
+|---|---|---|
+| `live` | You actually saw it in Ads Manager, or the API returned it valid | the interest **ID** recorded, plus the date you checked |
+| `UNCONFIRMED` | You could not check it | one line in the deliverable telling the buyer to type it into the Ads Manager search box before launch |
+
+**Never write `live` for a row you did not check.** That is the one failure mode worse than the current state: today a fabricated interest is obvious to the buyer, and a fabricated interest carrying a validation stamp is not. The lint fails any `live` row with no ID for exactly this reason.
+
+**When the API is unreachable** - as of 2026-09-08 the Facebook Ads MCP on this machine fails discovery, so it is - every row ships `UNCONFIRMED` and the deliverable says so in one line at the top. Do not describe a validation sweep that did not happen.
+
+Before falling back to UNCONFIRMED, try in this order: the Graph API Explorer with a personal token (`type=adinterestvalid` takes a name list), then a third-party interest explorer that proxies the same endpoint, then Ads Manager by hand for the highest-value rows. Confirming five interests by hand beats shipping twenty-five guesses.
+
+**Every cluster also carries one fallback that does not need an interest to exist at all** - broad plus the right creative, a lookalike, or a custom-audience play. A dead cluster then costs the buyer one ad set, not the test.
 
 ---
 
@@ -123,7 +156,26 @@ Anything that cannot be confirmed to exist does not go in the deliverable. Mark 
 
 A list of 60 interests is not a deliverable. Tiered, testable sets are.
 
-**Group into sets of 3-8 interests that share one theme.** A set is a hypothesis, and it must be nameable in three words - "Gear-obsessed hobbyist," "Time-poor parent," "Aspiring professional." If you cannot name it, it is not a coherent set.
+**Group into clusters of 3-5 interests that share one theme.** Over eight in one cluster splits into two. A cluster is a hypothesis, and it must be nameable in three words - "Gear-obsessed hobbyist," "Time-poor parent," "Aspiring professional." If you cannot name it, it is not a coherent cluster.
+
+**Deliver at least five cluster directions per run.** One or two clusters is an idea, not a test plan, and a buyer fighting frequency needs somewhere to move budget to this week.
+
+Five clusters times three to five interests is fifteen to twenty-five rows to stand behind. **Do not pad to hit the number.** If the honest count of defensible clusters is four, deliver four, say the fifth would have been invented, and name what would unblock it - usually customer data or a working API. A padded fifth cluster is the mechanism that produced `cottagecore mom content` in the first place.
+
+**Write the deliverable to a file in the shape the lint reads** (`uni-standards:uni-output` -> *The paid-media output contract* -> Contract 2):
+
+```
+=== CLUSTER 1: Off-price treasure hunters ===
+Tier: 2
+Chain: moms who chase boutique quality at a lower price already treasure-hunt at off-price chains
+Kill: CPA over 1.5x Tier 1 after 2x ticket price spent
+Fallback: broad targeting with the price-comparison creative
+INTERESTS
+- name: TJ Maxx | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Marshalls | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Ross Dress for Less | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS
+```
 
 Order by tier:
 
@@ -150,11 +202,24 @@ Close the deliverable with one sentence stating that on this campaign's optimiza
 
 ## Step 4 - Validate before delivering
 
+**Run the gate first. It is a script, and it can refuse.**
+
+```
+python skills/uni-output/scripts/lint-ads-output.py <file> --type targeting
+```
+
+Exit 1 means not deliverable. Fix every P1, re-run, and put the result line in the handoff:
+
+```
+Lint: targeting 5 clusters pass (P1=0, P2=1) - 15 rows UNCONFIRMED
+```
+
+The lint catches persona-shaped names, slash-packed rows, `live` without an ID, missing check dates, cluster and row counts, and a missing "type it into the search box" instruction. Everything below is what a script cannot judge.
+
 | Check | Fail = |
 |---|---|
-| Every interest confirmed live in Ads Manager or via API | Ad set stops delivering after launch |
-| Interest **IDs** recorded, not just names | Cannot re-find it after Meta renames it |
-| Every set has a stateable logic chain | 50% logic rule violated |
+| Every `live` row was genuinely seen in Ads Manager or returned valid by the API | A hallucination carrying a validation stamp |
+| Every cluster has a stateable logic chain | 50% logic rule violated |
 | At least half the interests are two-step | Method not applied; delivered the obvious list |
 | No detailed-targeting **exclusions** anywhere | Feature no longer exists |
 | Custom audience exclusions specified where relevant | Retargeting overlap left unhandled |

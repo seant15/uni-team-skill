@@ -1,0 +1,38 @@
+=== VARIANT 1 ===
+Angle: new arrivals
+Length: short
+Register: 3
+Placement: feed
+PRIMARY TEXT
+New arrivals just landed, and they're already selling out fast. Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
+END PRIMARY TEXT
+Headline: New Arrivals
+Description: -
+CTA: SHOP_NOW
+Counts: hook 40 / total 120
+
+=== VARIANT 2 ===
+Angle: emoji short
+Length: short
+Register: 3
+Placement: reels
+PRIMARY TEXT
+New arrivals just landed, boutique quality your mini will actually want to wear 🌸👗
+END PRIMARY TEXT
+Headline: New Arrivals
+Description: -
+CTA: SHOP_NOW
+Counts: hook 83 / total 83
+
+=== VARIANT 3 ===
+Angle: long wall
+Length: long-fb
+Register: 4
+Placement: feed
+PRIMARY TEXT
+New arrivals just landed at Rylee Faith Designs. Every piece is boutique quality, without the boutique price tag. Soft, comfortable fabrics she can actually play in. Details you won't find at big box stores. Prices that still make sense for growing girls. Free shipping on orders over one hundred dollars. Shop the new collection before your favorites sell out.
+END PRIMARY TEXT
+Headline: New Arrivals - Shop Now
+Description: -
+CTA: SHOP_NOW
+Counts: hook 12 / total 99

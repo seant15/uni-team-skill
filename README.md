@@ -58,7 +58,7 @@ Cowork: Sean sends new zips, upload them again, start a new session. Claude Code
 ### uni-standards
 | Skill | Does |
 |---|---|
-| `uni-output` | The house standard. Three permitted formats, the interview gate every skill implements, the typography rule, the AI-slop ban list, and the delivery gate. Holds the six golden samples. |
+| `uni-output` | The house standard. Three permitted formats, the interview gate every skill implements, the typography rule, the AI-slop ban list, and the delivery gate. Holds the six golden samples. Paid-media shape is refused by `scripts/lint-ads-output.py`. |
 | `uni-output-qa` | Peer review of a teammate's draft. Scores it, gives line-referenced feedback to the person, names the one habit to fix. Does not rewrite their work. |
 
 ### uni-creative

@@ -1,0 +1,31 @@
+=== VARIANT 1 ===
+Angle: boutique for less
+Length: short
+Register: 3
+Placement: feed
+PRIMARY TEXT
+New arrivals just landed.
+
+Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
+END PRIMARY TEXT
+Headline: New Arrivals Are Here
+Description: -
+CTA: SHOP_NOW
+Counts: hook 25 / total 128
+
+=== VARIANT 2 ===
+Angle: quality doubt
+Length: long-fb
+Register: 5
+Placement: feed
+PRIMARY TEXT
+You know how a nine dollar dress washes.
+
+This is not that. Every piece is made from fabric she can play in, with stitching that holds up to a real fall day.
+
+Shop the new collection before your size sells out.
+END PRIMARY TEXT
+Headline: Not Fast Fashion
+Description: -
+CTA: SHOP_NOW
+Counts: hook 40 / total 210

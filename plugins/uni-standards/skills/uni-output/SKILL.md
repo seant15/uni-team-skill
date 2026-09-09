@@ -114,6 +114,143 @@ Never draft from a thin brief. Ask for what is missing, in one batch, then write
 
 Anything else - a PDF, a deck, a spreadsheet - is a **conversion of one of these three**, and needs Sean's explicit go-ahead. Do not invent a fourth format because it feels nicer.
 
+The lint file in Step 2b is not a fourth format. It is the machine-checkable intermediate a paid-media deliverable passes through on its way to one of these three.
+
+---
+
+## Step 2b - The paid-media output contract
+
+Four skills produce something a buyer pastes straight into Ads Manager, or hands to a designer: `meta-ad-copy`, `meta-targeting`, `ad-ideas`, `creative-brief`. Their content has not been the problem. **Their shape has.** A deliverable the buyer has to reformat by hand costs more than writing it from scratch, so it quietly stops getting used.
+
+Prose rules did not hold. Versions of the rules below already sat in those files and were skipped, because nothing in the pipeline could refuse the output. **So the contract is mechanical and it is checked by a script.**
+
+The same test applies to any rule added here later: **if nothing can tell whether you followed it, it is not a rule.** That is why none of these skills asks you to draft a large internal pool and hand over the best few. Nobody downstream can see the pool, so the instruction costs nothing to skip and the file reads identical either way. Write the number of pieces the contract asks for, hold each one to the bar, and rewrite the ones that miss.
+
+```
+python skills/uni-output/scripts/lint-ads-output.py <file> --type meta-copy|targeting|ad-ideas|brief
+```
+
+**Where the linter sits depends on how you got these skills; nothing else about it changes.** In this marketplace it travels with `uni-standards` at `skills/uni-output/scripts/lint-ads-output.py`. In an AI Agentic OS checkout it is `tools/checks/lint-ads-output.py`. Same script, same flags, same exit codes. Every command line in this file and in the other four is written for one layout - **if yours differs, resolve the path once at the start of the session and substitute it everywhere.** Do not paste a second path into the skill files; a file carrying two commands gets skimmed and the wrong one gets run. A path that does not resolve is a missing gate, not a passing one, so a command that errored is never reported as "checked".
+
+**Write the deliverable to a file, run the lint, fix every P1, then paste or send.** Exit code 1 means it is not deliverable. A deliverable that never went through the lint is a draft, and saying "checked" without the exit code is the failure this section exists to stop.
+
+Run it before *and* after any fix, and report the line in the handoff:
+
+```
+Lint: meta-copy 5/5 pass (P1=0, P2=1)
+```
+
+### Contract 1 - Meta primary text
+
+Write to file in exactly this shape, one block per variant. The delimiters are what makes it parseable; do not reword them.
+
+```
+=== VARIANT 1 ===
+Angle: three words
+Length: short | long-fb | long-aida
+Register: 3
+Placement: feed | reels | stories
+PRIMARY TEXT
+New arrivals just landed.
+
+Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
+END PRIMARY TEXT
+Headline: New Arrivals Are Here
+Description: -
+CTA: SHOP_NOW
+Counts: hook 25 / total 128
+```
+
+**The counting convention, because an example is not a spec.** `hook` is the length of block 1 with surrounding whitespace stripped. `total` is the length of the whole primary text between the delimiters, stripped at both ends, **with the blank lines between blocks counted** - they are characters and they cost you visible space. In the example above that is 25 and 128. The lint recomputes both and tolerates one character of drift, so a convention that is off by two fails.
+
+**A header above the first `=== VARIANT 1 ===` is allowed and often required** - the `ASSUMPTIONS` block belongs there when you were told to proceed without answers. The parser scans for delimiters rather than requiring the file to open with one.
+
+Hard rules, all lintable:
+
+| # | Rule | P1 fail = |
+|---|---|---|
+| 1 | Short copy is **at least two blocks** separated by one blank line. **Block 1 is the hook, exactly one sentence, always alone.** | Hook buried in a paragraph |
+| 2 | **Block 2 carries at most two sentences and may include the CTA.** If the body needs two sentences of its own, the CTA moves to a third block. Short copy never exceeds three blocks. | CTA buried behind two sentences of body |
+| 3 | Long copy: **no paragraph over three sentences.** Bullet and feature blocks are exempt. | Wall of text |
+| 4 | Long copy: **the last paragraph is the CTA and nothing else**, one or two sentences, and it has to be strong. | Ad ends on a feature |
+| 5 | The hook carries the specific thing inside the **first 40 characters**. | Nothing lands before the fold |
+| 6 | `reels` and `stories` placements deliver **short only**. Long copy is Feed only. `Length` values are `short`, `long-fb` (feature and benefit) and `long-aida`. | 900 characters on a Reel |
+| 7 | **No emoji unless the buyer asked for them in this request.** | House rule broken |
+| 8 | `Counts:` present and arithmetically correct. Count, do not estimate. | Unverifiable delivery |
+| 9 | **One `Register:` value across the whole file.** The length test holds register constant so length is the only variable. | Two tests at once, reads as neither |
+| 10 | **Exactly five variants.** Five is Meta's per-ad maximum for primary text. Write five and get them right - do not draft a pool and trim it. | A short file, or an unverifiable "top five of twenty" |
+
+**Three character numbers are in play and only one is enforced.** 40 is the rule - it is what survives a small screen and an accessibility text size. 125 is roughly where mobile Feed folds on a normal phone. 80 is how early it can fold on a bad one. Write to 40 and treat the other two as context.
+
+**The fold trade-off, decided 2026-09-08.** Blank lines cost a rendered line each, so the two-block structure can push the CTA below "See more" in Feed. That is accepted: the person who taps See more is the person with intent. Do not silently collapse the blocks to win the fold, and do not present the block structure to a client as a performance rule. It is a readability and paste-ability rule.
+
+### Contract 2 - Meta interest targeting
+
+```
+=== CLUSTER 1: Bargain-hunter moms ===
+Tier: 2
+Chain: moms who chase boutique-for-less also treasure-hunt at off-price retailers
+Kill: CPA over 1.5x Tier 1 after 2x ticket price spent
+INTERESTS
+- name: TJ Maxx | id: 6003... | size: 12M-14M | checked: 2026-09-08 | status: live
+- name: Marshalls | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Ross Dress for Less | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS
+```
+
+| # | Rule | P1 fail = |
+|---|---|---|
+| 1 | **At least five cluster directions per run.** | Buyer got one idea, not a test plan |
+| 2 | **Three to five interests per cluster.** Over eight splits into two clusters. | Unreadable OR-soup |
+| 3 | The `name` field is a **literal string the buyer can type into the Ads Manager detailed-targeting search box.** `TJ Maxx` and `Cricut` qualify. `Aesthetic motherhood / cottagecore mom content` and `gentle parenting creators` do not - those are personas, and they belong in `Chain`, never in `name`. | Dead-on-arrival cluster |
+| 4 | Every row carries `status`: `live` (seen in Ads Manager or returned valid by the API, with the ID recorded) or `UNCONFIRMED`. **Never write `live` for a row you did not actually check.** | A hallucination wearing a validation stamp |
+| 5 | Every `UNCONFIRMED` row says, once per deliverable, that it must be typed into the Ads Manager search box before launch. | Buyer launches on a deleted interest |
+| 6 | `id` recorded for every `live` row. Meta renames interests; the ID is the only stable key. | Cannot re-find it next quarter |
+| 7 | Every cluster has a stateable `Chain` and a `Kill` condition. | A list, not a hypothesis |
+
+**When the Marketing API is unreachable** (as of 2026-09-08 the Facebook Ads MCP on this machine fails discovery): every row ships `UNCONFIRMED`, and the deliverable says so in one line at the top. Do not claim a validation sweep happened. Also give the buyer, per cluster, one fallback that does not depend on an interest existing at all - broad plus creative, a lookalike, or a custom-audience play - so a dead cluster does not cost him the whole test.
+
+### Contract 3 - Ad ideas
+
+```
+=== CONCEPT 1: Cinemagraph Twirl ===
+Hook: She's going to live in this all fall.
+Gap: absent - nobody in category animates a single still
+Angle: demonstration
+Idea: Animate only the skirt on an existing model shot. Face and background stay still.
+Format: video, 4-6s loop, Reels and Stories
+Producible: existing studio shot plus an image-to-video tool. No new shoot.
+Risk: AI motion on a face reads as uncanny. Isolate to fabric.
+```
+
+| # | Rule | P1 fail = |
+|---|---|---|
+| 1 | **One field per line.** Label, colon, content. Never two fields on one line. | The wall of text the buyer reported |
+| 2 | **One blank line between concepts.** | Concepts run together |
+| 3 | `Hook:` is the **second line, right after the concept name**, and it is a written sentence, not a description of one. "A hook about durability" fails. | Buyer cannot skim to the thing that matters |
+| 4 | All seven fields present: Hook, Gap, Angle, Idea, Format, Producible, Risk. | Half a concept |
+| 5 | **Readability: Flesch-Kincaid grade 7 or below on the concept body.** The lint computes it and prints the number. Do not self-declare a grade - the script decides. Grade over 10 is P1, 8 to 10 is P2. | Unreadable internal doc |
+| 6 | **Five to seven concepts.** Write those and get them right - do not draft a pool and trim it. | A short file, or an unverifiable shortlist |
+
+Readability is a deliberately soft-edged rule: the grade formula correlates loosely with how humans actually experience a text, so the script reports the number rather than pretending it is truth. **Fix it by shortening sentences and dropping jargon, not by deleting the precision in `Risk`.** A vague risk line is worse than a hard-to-read one.
+
+### Contract 4 - Creative brief
+
+**The default output is a real Google Doc, created through the Docs API, not markdown pasted into chat.** Markdown or Notion only when the requester explicitly asks for it.
+
+| # | Rule | P1 fail = |
+|---|---|---|
+| 1 | Doc created via `docs_create`, then structured with `docs_formatText`. Handoff includes the Doc URL. | Requester has to build the document |
+| 2 | **Heading 1** for the brief title. **Heading 2** per concept or job. **Heading 3** for `Do not`, the deadline, and any hard rule, so it separates visually. | Hard rules buried in a paragraph |
+| 3 | Field labels bold: Format, Overlay, CTA, Must show, Do not, Deadline. The overlay line itself is bold, because it gets burned into the artwork. | Designer guesses what is locked |
+| 4 | **No markdown artifacts in the Doc body**: no `###`, no `**`, no pipe tables. Use Docs headings and Docs tables. | Hash symbols in a client-adjacent document |
+| 5 | One blank paragraph between blocks. One concept scannable in one screen. | Wall of text with nicer fonts |
+| 6 | A **plain-text fallback block in chat** alongside the link, so the brief survives a permissions or folder problem. | Broken link means no brief |
+
+**Highlight colour is not available.** The Docs tooling here does bold, italic, underline and headings only. Do not promise a highlight and do not fake one with brackets or caps. Heading 3 plus bold is the approved emphasis, decided 2026-09-08.
+
+**Images cannot be embedded** either. Visual references ship as **annotated links** - every link says what to take and what to ignore. That still satisfies `creative-brief`'s rule that references are attached rather than described, but only if the link actually resolves. Check it.
+
 ---
 
 ## Step 3 - Write it
@@ -190,6 +327,7 @@ Run this checklist silently. Fix P1 items yourself. Report P2 items to the reque
 | 7 | Every recommendation names the action and the object | "Optimize underperformers" style vagueness |
 | 8 | Client name, dates, and currency are correct throughout | A stale client name or wrong currency |
 | 9 | Notion: blank line around every heading, table and list | Unreadable wall of blocks |
+| 10 | Paid-media deliverable: `lint-ads-output.py` ran and exited 0, and the pass line is in the handoff | Contract in Step 2b unchecked, or "checked" claimed without an exit code |
 
 If a P1 fails, fix and re-run. Only then deliver.
 

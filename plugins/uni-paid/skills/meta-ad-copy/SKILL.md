@@ -11,11 +11,17 @@ Two things break Meta copy: writing past the truncation point, and writing in a 
 
 ---
 
-## Step 1 - Interview
+## Step 1 - Retrieve, assume, then ask once
 
-Do not write from "we need Meta copy for client X." Ask for what's missing, in one batch. Skip anything already supplied in the brief.
+Do not write from "we need Meta copy for client X." Equally: **do not open with six questions.** The buyer has most of the answers sitting in files you can read, and a toll gate in front of the copy is the fastest way to make him write it himself.
 
-**Interview gate.** Ask everything below in one batch, skip what is supplied, then lock the brief before producing. Never fill a gap with a plausible value. The full rule is in `uni-standards:uni-output` under *The interview gate*.
+**Order of operations, and it is not negotiable:**
+
+1. **Retrieve first.** Read the product or collection page, the brand kit, the reviews, the last brief for this client, the ClickUp history. Most of the list below is already written down somewhere.
+2. **Assume out loud.** State what you found in the `BRIEF LOCK`, with everything inferred on the `Assuming:` line. One correction is cheaper for the buyer than six answers.
+3. **Then ask, once, only for what retrieval could not settle and that would change the copy.** Numbered, one batch.
+
+Mark every line as retrieved or assumed, and say where a retrieved value came from. **Never fill a gap with a plausible value** - an invented offer or an invented figure is a worse failure than a question. The full rule is in `uni-standards:uni-output` under *The interview gate*.
 
 
 ### Brand - required
@@ -46,64 +52,100 @@ Ask the requester to place it: **1 = pure brand, 5 = pure direct response.** Get
 6. **Placements** - Feed, Stories, Reels, or all. Character recommendations differ sharply.
 7. **Funnel stage** - cold, warm, retargeting
 7b. **Awareness level** - unaware / problem-aware / solution-aware / product-aware. This decides where the copy has to start. Product-aware traffic does not need the problem explained to it, and unaware traffic will not read an offer.
-8. **Offer** - what the click actually gets, and where it lands
-9. **What already ran and how it did** - if this is a refresh, the losing copy is the most useful input in the brief
-10. **Voice of customer** - reviews, support tickets, sales call notes, comments on past ads. Ask for the file or the link. The strongest lines in an ad are usually already written by a customer; we are transcribing, not inventing.
+8. **What already ran and how it did** - if this is a refresh, the losing copy is the most useful input in the brief
+9. **Voice of customer** - reviews, support tickets, sales call notes, comments on past ads. Ask for the file or the link. The strongest lines in an ad are usually already written by a customer; we are transcribing, not inventing.
+
+### Offer, features, benefits - copy cannot be written without these three
+
+This is where thin ads come from. A variant with no offer and no specific feature has nothing to say, so it says "boutique quality at affordable prices" five different ways and the buyer correctly calls it generic.
+
+| | What it is | Where to retrieve it |
+|---|---|---|
+| **Offer** | What the click actually gets, in this campaign, right now. A discount, a shipping threshold, a bundle, a free trial, a deadline. Plus where it lands. | Site banner, cart page, brand kit, the last campaign brief. Reconcile conflicts - a banner saying free shipping over $100 and a footer saying all orders is a stop-and-ask. |
+| **Features** | What the product concretely has. Fabric, mechanism, dimensions, ingredients, warranty, what is in the box. | Product page, spec table, PDP bullets |
+| **Benefits** | What each feature does for this reader, in their words | Reviews and support tickets. Benefits invented in-house read as invented. |
+
+**Go and find them before asking.** Read the collection page and the reviews. If after retrieval you still have no offer, no specific feature, or no benefit traceable to a customer's own words, **stop and say which of the three is missing.** Do not write a fourth generic variant to fill the gap.
 
 **Stop and ask** if: no cleared claims exist but the brief implies a performance promise; the offer and the landing page disagree; or the client is in a Special Ad Category (Housing, Employment, Credit, Social/Political) - that constrains both targeting and claims.
+
+**Unless the buyer already said not to ask.** Then `uni-standards:uni-output` -> *The interview gate* -> *The one exception* applies: proceed on the value that matches the brief on file, and open the deliverable with an `ASSUMPTIONS - confirm before this goes to the client` block naming the conflict and which side you took. A shipping banner that disagrees with a footer is a line in that block, not a reason to hand back nothing.
 
 ---
 
 ## Step 2 - Write
 
-### The 125-character rule
+### Block structure - the rule the buyer sends copy back over
 
-Mobile feed truncates around **125 characters** at "See more." Everything past it is read only by someone already leaning in.
+Copy that arrives as one dense paragraph gets reformatted by hand before it can go into Ads Manager, which costs more than writing it from scratch. **Formatting is the deliverable, not a garnish.**
 
-**The hook, the specific thing, and the reason to keep reading all live in the first 125 characters.** Structure primary text as:
+The full contract, including the file shape the lint reads, is `uni-standards:uni-output` -> *The paid-media output contract* -> Contract 1. The shape:
 
 ```
-[0-125]    Hook + the specific claim. Must stand alone as a complete thought.
-[125-300]  Proof, mechanism, or the objection they're already forming.
-[final]    CTA line. One line. No stacking of three calls to action.
+New arrivals just landed.
+
+Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
 ```
 
-If the first 125 characters do not work as a standalone ad, the copy is not finished.
+- **Block 1 is the hook. Exactly one sentence. Always alone, always followed by a blank line.**
+- **Block 2 carries at most two sentences and may include the CTA.** That is the default shape.
+- **If the body needs two sentences of its own, the CTA moves to a third block.** Short copy stops at three blocks.
+- **Long copy: no paragraph over three sentences.** Bullet and feature blocks are exempt.
+- **Long copy closes on the CTA and nothing else**, one or two sentences, and it has to be strong. An ad that ends on a feature has no ask.
+
+### Where the fold lands
+
+The cut behind "See more" is driven by rendered lines, not by a character count, so a blank line costs a whole line of the visible budget. Feed usually folds around 125 characters and a small screen with accessibility text sizing can fold by 80.
+
+**Write to 40.** That is the enforced number, because it is what survives every phone. If the first block does not work as the entire ad, the copy is not finished.
+
+The block structure can therefore push the CTA below the fold in Feed. **That is accepted** - the person who taps "See more" is the person with intent. Two things follow: do not collapse the blocks to win the fold, and never present the block structure to a client as a performance rule. There is no public test data behind it. It is a readability and paste-ability rule, and that is enough.
 
 ### The length test - always run both
 
 UNI does not pick a length. **We test short against long, every time**, because which one wins is a property of the brand and the audience, not something anyone can call in advance.
 
 **Short - 2 to 3 sentences, elevated.**
-No bullets. No stacked benefits. It reads like a statement someone confident made, not like a page of selling. Works when the product is visually self-explanatory, the brand carries weight, or the audience is product-aware and does not need convincing, only reminding. This is the register-1-to-2 shape.
+No bullets. No stacked benefits. It reads like a statement someone confident made, not like a page of selling. Works when the product is visually self-explanatory, the brand carries weight, or the audience is product-aware and does not need convincing, only reminding. Short copy sits most naturally at register 1 to 2.
 
 > Fifteen years of pro-style ranges. Now in a showroom you can actually walk into.
 > Paramus, open weekends.
 
 **Long - feature and benefit structure, or AIDA.**
-Bullets or a short structured block. Works when the product needs explaining, when there are multiple objections to clear, or when the audience is problem-aware and has to be walked to the solution. This is the register-4-to-5 shape.
+Bullets or a short structured block. Works when the product needs explaining, when there are multiple objections to clear, or when the audience is problem-aware and has to be walked to the solution. Long copy sits most naturally at register 4 to 5.
+
+**Those affinities are not permission to drift off the register the client gave you.** If the answer was 3, all five variants are register 3 - the length test holds register constant so that length is the only variable. A file with short at 2 and long at 4 tests two things at once and reads as neither. Where the natural affinity pulls against the client's number, the number wins and you say in the handoff that it did.
 
 Two structures to pick from, and say which one you used:
 
 | | |
 |---|---|
 | **Feature and benefit** | Hook. Then 3-4 lines, each pairing one concrete feature with the thing it does for the reader. Then the CTA. Every bullet earns its line or it gets cut. |
-| **AIDA** | Attention (the hook, inside 125 characters) → Interest (the specific mechanism or fact that makes it credible) → Desire (the outcome in their life, in their words) → Action (one CTA, no stacking). |
+| **AIDA** | Attention (the hook, inside 40 characters) → Interest (the specific mechanism or fact that makes it credible) → Desire (the outcome in their life, in their words) → Action (one CTA, no stacking). |
 
 **Deliver both.** Two or three short variants and two or three long, five total, clearly labeled. Tell the buyer to run them as separate ads, not as one ad set with mixed lengths, or the test reads nothing.
 
-The 125-character rule applies to both. A long ad still has to earn the "See more" click.
+The fold applies to both. A long ad still has to earn the "See more" click.
+
+**Reels and Stories deliver short only.** Meta's own recommendation for Reels primary text is around 40 characters; long copy there is thrown away. Long copy is a Feed asset. If the brief says all placements, deliver short for Reels and Stories and long for Feed, labelled per placement - do not hand over one length and let the buyer sort it out.
+
+**Default split when the brief names Feed plus a vertical placement:** two short on the vertical placement, one short on Feed, two long on Feed. That keeps three short against two long for the length test while giving each placement something it can actually run. Deviate when the media plan says to, and say why.
+
+**No emoji unless the buyer asked for emoji in this request.** UNI output bans them everywhere else and paid copy is not an exception by default. When he does ask (he sometimes will, for short variants), they go at the end of a block, never mid-sentence and never as a bullet, and the lint runs with `--allow-emoji` so the exemption is visible in the record rather than assumed.
 
 ### Volume and grading
 
-Generate **15-20 variants** internally. Grade them. **Show the top 5** - that is also the platform maximum per asset type, so five is the right number to deliver.
+**Deliver exactly five variants.** Five is the platform maximum per asset type, so five is the number.
 
-Grade each variant against:
-1. Does the hook land inside 125 characters?
-2. Is there a specific, verifiable thing in it - a number, a name, a mechanism? Vague ads lose.
-3. Does it match the register number the client gave?
-4. Would the brand actually say this sentence out loud?
-5. Is it different from the other four in **angle**, not just wording? Five rewordings of one idea is one ad, not five.
+Write five and get them right. **Do not generate a large pool and shortlist it** - nothing can tell whether that happened, and an unverifiable step is the exact failure this skill's gate exists to end. If a variant cannot clear the bar below, rewrite that variant. Do not fill the slot from a pile.
+
+Every one of the five clears all five of these:
+
+1. The hook carries the specific thing inside **40 characters**
+2. There is a specific, verifiable thing in it - a number, a name, a mechanism. Vague ads lose.
+3. It matches the register number the client gave
+4. The brand would actually say this sentence out loud
+5. It differs from the other four in **angle**, not wording. Five rewordings of one idea is one ad, not five.
 
 ### The three-seat check
 
@@ -132,27 +174,49 @@ If the request came through `creative-brief`, the overlay lines belong back in t
 
 ### Structure of the deliverable
 
-For each of the 5 variants:
+**Write the five variants to a file in this exact shape, then lint the file.** The delimiters are what make it machine-checkable; do not reword them.
 
 ```
-Angle: [three words]
-Length: short-elevated | long-feature-benefit | long-AIDA
-Primary text: [copy]   (hook chars: NN / total: NNN)
-Headline: [copy]       (NN chars)
-Description: [copy]    (NN chars)  - only if the placement shows one
-CTA: [enum value]
+=== VARIANT 1 ===
+Angle: three words
+Length: short | long-fb | long-aida
+Register: 3
+Placement: feed | reels | stories
+PRIMARY TEXT
+New arrivals just landed.
+
+Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
+END PRIMARY TEXT
+Headline: New Arrivals Are Here
+Description: -
+CTA: SHOP_NOW
+Counts: hook 25 / total 128
 ```
 
-Count characters and print the counts. Do not estimate them.
+`Description` is `-` unless the placement shows one. **Count characters, do not estimate them** - the lint recomputes both numbers and fails the variant if they are off by more than one.
 
 ---
 
 ## Step 3 - Validate before delivering
 
+**Run the gate first. It is a script, and it can refuse.**
+
+```
+python skills/uni-output/scripts/lint-ads-output.py <file> --type meta-copy
+```
+
+Exit 1 means not deliverable. Fix every P1, re-run, and put the result line in the handoff:
+
+```
+Lint: meta-copy 5/5 pass (P1=0, P2=1)
+```
+
+**Do not report "checked" without an exit code.** The lint covers block structure, hook budget, paragraph sentence counts, CTA isolation, placement-length match, emoji, character-count honesty and dashes. Everything below is what a script cannot judge.
+
 | Check | Fail = |
 |---|---|
 | Every field counted against `references/meta-text-limits.md` | A field over a `[HARD-OFFICIAL]` limit |
-| Hook lands inside 125 characters | Truncation eats the point |
+| Offer, features and benefits are all present and retrieved, not invented | A generic ad with nothing to say |
 | ≤5 primary texts, ≤5 headlines, ≤5 descriptions | Over the API asset cap |
 | CTA exists for this objective in Ads Manager | Promised a button that isn't in the dropdown |
 | Every claim is on the cleared list | An unapproved performance or superlative claim |

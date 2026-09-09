@@ -1,0 +1,14 @@
+=== CONCEPT 1 - Motion Collage ===
+Gap: absent (nobody doing true motion from stills) Angle: demonstration Idea: Take the 2x2 collage you already build, but animate each cell with subtle parallax so the collage breathes instead of sitting static
+Hook: a hook about how the collage feels alive
+Format: video, 6-9s per cell transition
+Producible: yes, from existing product photos, no new shoot needed
+Risk: motion has to look intentional
+=== CONCEPT 2 - Cinemagraph Twirl ===
+Hook: She's going to live in this all fall.
+Gap: absent
+Angle: demonstration
+Idea: Notwithstanding the substantial methodological limitations inherent in contemporary image-to-video synthesis architectures, the fundamental proposition entails the selective animation of textile elements while concurrently preserving the immutability of facial and environmental components throughout the duration of the sequence.
+Format: video, 4-6s loop
+Producible: Contingent upon the availability of sufficiently high-resolution photographic source material, the transformation may be accomplished utilizing commercially available generative video instrumentation.
+Risk: Insufficient isolation of the animated region precipitates an uncanny perceptual response.

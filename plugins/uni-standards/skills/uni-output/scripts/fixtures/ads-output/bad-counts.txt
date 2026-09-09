@@ -1,0 +1,54 @@
+Pins the counting convention in Contract 1. The primary text below is byte-identical
+in all three variants; only the claimed Counts line changes. Truth is hook 25 / total 128:
+hook is block 1 stripped, total is the whole primary text stripped with the blank lines
+between blocks counted.
+
+Two documents once printed different Counts for this same example (25/128 and 26/127).
+The wrong one survived only because it landed exactly on the one-character tolerance,
+which made the defect invisible. Variant 3 is here so the tolerance boundary itself stays
+pinned: one character of drift is forgiven, two is not.
+
+=== VARIANT 1 ===
+Angle: exact convention
+Length: short
+Register: 3
+Placement: feed
+PRIMARY TEXT
+New arrivals just landed.
+
+Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
+END PRIMARY TEXT
+Headline: New Arrivals Are Here
+Description: -
+CTA: SHOP_NOW
+Counts: hook 25 / total 128
+
+=== VARIANT 2 ===
+Angle: one off forgiven
+Length: long-fb
+Register: 3
+Placement: feed
+PRIMARY TEXT
+New arrivals just landed.
+
+Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
+END PRIMARY TEXT
+Headline: New Arrivals Are Here
+Description: -
+CTA: SHOP_NOW
+Counts: hook 26 / total 127
+
+=== VARIANT 3 ===
+Angle: two off blocks
+Length: short
+Register: 3
+Placement: feed
+PRIMARY TEXT
+New arrivals just landed.
+
+Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
+END PRIMARY TEXT
+Headline: New Arrivals Are Here
+Description: -
+CTA: SHOP_NOW
+Counts: hook 27 / total 126
