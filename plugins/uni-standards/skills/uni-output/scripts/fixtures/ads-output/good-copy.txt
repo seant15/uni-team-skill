@@ -1,0 +1,90 @@
+=== VARIANT 1 ===
+Angle: boutique for less
+Length: short
+Register: 3
+Placement: feed
+PRIMARY TEXT
+New arrivals just landed.
+
+Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
+END PRIMARY TEXT
+Headline: New Arrivals Are Here
+Description: -
+CTA: SHOP_NOW
+Counts: hook 25 / total 128
+
+=== VARIANT 2 ===
+Angle: mom approved price
+Length: short
+Register: 3
+Placement: reels
+PRIMARY TEXT
+New arrivals just landed.
+
+Soft enough for real playtime, cute enough for everywhere else.
+
+Shop the new collection.
+END PRIMARY TEXT
+Headline: Boutique Style, Real Prices
+Description: -
+CTA: SHOP_NOW
+Counts: hook 25 / total 116
+
+=== VARIANT 3 ===
+Angle: quality doubt
+Length: long-fb
+Register: 3
+Placement: feed
+PRIMARY TEXT
+You know how a nine dollar dress washes.
+
+This is not that. Every piece is made from fabric she can play in, with stitching that holds up to a real fall day.
+
+- Soft cotton she will actually wear
+- Details big box stores skip
+- Prices that still make sense for growing girls
+
+Shop the new collection before your size sells out.
+END PRIMARY TEXT
+Headline: Not Fast Fashion
+Description: -
+CTA: SHOP_NOW
+Counts: hook 40 / total 327
+
+=== VARIANT 4 ===
+Angle: outgrown overnight
+Length: short
+Register: 3
+Placement: reels
+PRIMARY TEXT
+She outgrew last season in a month.
+
+New arrivals are here, priced so the next growth spurt costs you nothing to dress for.
+
+Shop the new collection.
+END PRIMARY TEXT
+Headline: Sized For Growth Spurts
+Description: -
+CTA: SHOP_NOW
+Counts: hook 35 / total 149
+
+=== VARIANT 5 ===
+Angle: gift that gets worn
+Length: long-fb
+Register: 3
+Placement: feed
+PRIMARY TEXT
+Most gift clothes stay in the drawer.
+
+The ones she picks herself are the ones that wear out first. So we build for the picking: prints she points at, cuts she can run in, colors that survive the wash.
+
+- Elastic waists she can manage alone
+- Pockets on almost everything
+- Sizes that leave room for a growth spurt
+
+Shop the new collection before your size sells out.
+END PRIMARY TEXT
+Headline: The Ones She Reaches For
+Description: -
+CTA: SHOP_NOW
+Counts: hook 37 / total 367

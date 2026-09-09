@@ -1,0 +1,29 @@
+Rylee interest web. Validate before launch.
+
+=== CLUSTER 1: Mommy and me ===
+Tier: 1
+Chain: moms buying kids clothes also buy matching sets
+INTERESTS
+- name: Mommy and Me (fashion/lifestyle) | id: - | checked: 2026-09-08 | status: live
+- name: Aesthetic motherhood / cottagecore mom content | id: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS
+
+=== CLUSTER 2: Gentle parenting ===
+Tier: 2
+Chain: millennial mom audience engaged with parenting content
+Kill: CPA over 1.5x Tier 1
+INTERESTS
+- name: Dr. Becky Kennedy / gentle parenting creators | id: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Church / Christian parenting content engagers | id: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Family devotional apps | id: - | checked: | status: UNCONFIRMED
+END INTERESTS
+
+=== CLUSTER 3: Bargain hunters ===
+Tier: 2
+Chain: moms who chase boutique for less treasure-hunt at off-price retailers
+Kill: CPA over 1.5x Tier 1 after 2x ticket price spent
+INTERESTS
+- name: TJ Maxx | id: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Marshalls | id: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Ross Dress for Less | id: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS

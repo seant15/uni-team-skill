@@ -72,6 +72,18 @@ An unannotated reference is worse than none - the designer copies the wrong thin
 
 **Read the golden sample first:** `uni-standards/skills/uni-output/references/golden/creative-brief.md`. It carries the full-batch structure with Asset IDs, the short form for a three-ad job, and the hard requirements for both. Match it.
 
+### Format - a Google Doc by default, not markdown in a chat window
+
+**Build a real Google Doc.** A requester who has to strip hash symbols and asterisks before the designer can read it is doing the last step of your job. Markdown or Notion only when they explicitly ask.
+
+`docs_create` for the body as plain text, then `docs_formatText` for structure: **Heading 1** for the title, **Heading 2** per concept, **Heading 3** for `Do not`, the deadline and any hard rule, **bold** on field labels and on the overlay line itself. Fetch the Doc back with `docs_getText` before handing over the link, and paste a plain-text fallback into chat next to it.
+
+Two limits of the tooling to design around, not to promise past:
+
+- **No highlight colour** - bold, italic, underline and headings only. Heading 3 plus bold is the approved emphasis (decided 2026-09-08). Do not fake a highlight with brackets or caps.
+- **No image embedding** - so the references in Step 2 ship as **annotated links**, and every one of them has to actually resolve. Check them. An unopenable reference is worse than none, because the designer works from memory instead.
+
+The full contract is `uni-standards:uni-output` -> *The paid-media output contract* -> Contract 4.
 
 One page per concept. If it runs to two, the concept has two ideas in it - split them.
 
@@ -131,6 +143,14 @@ When briefing a batch, be explicit about **what varies and what is locked**. "Fi
 ---
 
 ## Step 4 - Validate before sending
+
+**Run the gate first. It is a script, and it can refuse.**
+
+```
+python skills/uni-output/scripts/lint-ads-output.py <file> --type brief
+```
+
+It checks for a real Doc URL, markdown artifacts left in the body, a missing `Do not` block, reference links and dashes. Exit 1 means not deliverable. Fix every P1, re-run, and put `Lint: brief pass (P1=0, P2=n)` in the handoff. Everything below is what a script cannot judge.
 
 | Check | Fail = |
 |---|---|

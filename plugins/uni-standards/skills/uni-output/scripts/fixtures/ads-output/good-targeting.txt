@@ -1,0 +1,61 @@
+Rylee interest web, 5 cluster directions.
+
+Marketing API unreachable on this machine as of 2026-09-08, so every row below
+ships UNCONFIRMED. Type each name into the Ads Manager detailed targeting search
+box before launch and record the ID. Each cluster carries an interest-free
+fallback so a deleted interest does not cost you the whole test.
+
+=== CLUSTER 1: Off-price treasure hunters ===
+Tier: 2
+Chain: moms who chase boutique quality at a lower price already treasure-hunt at off-price chains
+Kill: CPA over 1.5x Tier 1 after 2x ticket price spent
+Fallback: broad targeting with the price-comparison creative
+INTERESTS
+- name: TJ Maxx | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Marshalls | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Ross Dress for Less | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS
+
+=== CLUSTER 2: Family retailers ===
+Tier: 1
+Chain: parents already buying kids clothing from mass retailers are in market now
+Kill: benchmark set, never killed, it is the number to beat
+Fallback: lookalike from purchasers
+INTERESTS
+- name: Carter's | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: OshKosh B'gosh | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Old Navy | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS
+
+=== CLUSTER 3: Recital and photo season ===
+Tier: 2
+Chain: dance and gymnastics parents buy a new outfit on a fixed seasonal schedule
+Kill: CPA over 1.5x Tier 1 after 2x ticket price spent
+Fallback: seasonal broad push timed to photo season
+INTERESTS
+- name: Dance | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Gymnastics | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Cheerleading | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS
+
+=== CLUSTER 4: Planner moms ===
+Tier: 2
+Chain: moms who plan outfits and rooms on boards plan seasonal wardrobe drops too
+Kill: CPA over 1.5x Tier 1 after 2x ticket price spent
+Fallback: retarget site visitors 30d with the collection creative
+INTERESTS
+- name: Pinterest | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Cricut | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Hobby Lobby | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS
+
+=== CLUSTER 5: Grandparent gifting ===
+Tier: 3
+Chain: the second buyer is grandma, and she is a different decision maker
+Kill: small budget, kill fast if CPA is over 2x Tier 1
+Fallback: broad with the gifting creative in the two weeks before a holiday
+INTERESTS
+- name: Grandparent | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Babysitting | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+- name: Etsy | id: - | size: - | checked: 2026-09-08 | status: UNCONFIRMED
+END INTERESTS

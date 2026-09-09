@@ -73,7 +73,9 @@ This map is a deliverable in its own right. Clients pay for it. Deliver it even 
 
 Every concept must state the gap it occupies. A concept without a stated gap is a guess.
 
-Generate **15-20 internally**, then **deliver 5-7**. Discard anything that duplicates an angle already saturated in the map - unless the plan is to deliberately out-execute a proven angle, which is a legitimate strategy but must be named as such.
+**Deliver 5-7 concepts.** Write those and get them right - **do not generate a large pool and shortlist it.** Nothing downstream can tell whether that step happened, and an unverifiable step is the failure this skill's gate exists to end. If a concept does not clear the bar, rewrite that concept rather than filling the slot from a pile.
+
+Drop any concept that duplicates an angle already saturated in the map - unless the plan is to deliberately out-execute a proven angle, which is a legitimate strategy but must be named as such.
 
 **Cover distinct angle families.** Five variations of one idea is one idea:
 
@@ -89,18 +91,33 @@ Generate **15-20 internally**, then **deliver 5-7**. Discard anything that dupli
 
 ### Deliverable per concept
 
+A buyer scans this list to pick two or three concepts. He is not reading it, he is scanning it, and a wall of text with `Gap` `Angle` `Idea` all on one line cannot be scanned. **Write to a file in this exact shape, then lint the file** (`uni-standards:uni-output` -> *The paid-media output contract* -> Contract 3):
+
 ```
-[Three-word name]
-Gap:      which map cell this occupies, and why it's open
-Angle:    which family
-Idea:     one sentence
-Hook:     the actual first line, written not described
-Format:   static / video / UGC / carousel - and why this one
-Producible: what the client needs to make it
-Risk:     the specific reason this could fail
+=== CONCEPT 1: Cinemagraph Twirl ===
+Hook: She's going to live in this all fall.
+Gap: absent - nobody in category animates a single still
+Angle: demonstration
+Idea: Animate only the skirt on an existing model shot. Face and background stay still.
+Format: video, 4-6s loop, Reels and Stories
+Producible: existing studio shot plus an image-to-video tool. No new shoot.
+Risk: AI motion on a face reads as uncanny. Isolate to fabric.
 ```
 
+- **One field per line.** Label, colon, content. Never two fields on one line.
+- **One blank line between concepts.**
+- **`Hook` is the second line, right after the name.** It is the thing the buyer scans for, so it comes before the reasoning.
+- All seven fields present, every time.
+
 **The hook must be written, not described.** "A hook about durability" is not a hook. "This is the third year I've had it and it still doesn't wobble" is.
+
+### Readability - a number, not a claim
+
+**Target Flesch-Kincaid grade 7 or below.** The lint computes the grade and prints it. Over 10 is a P1; 8 to 10 is a P2.
+
+Do not self-assess and do not declare a grade - models estimate reading level badly and the formula itself correlates only loosely with how a person actually experiences a text, so the script's number is the only one that counts. Fix a high grade the boring way: **shorten sentences and drop jargon.**
+
+One thing you may not do to win the number: **flatten `Risk` into something vague.** "Might not work" scores beautifully and is worthless. A precise risk line that reads at grade 9 beats a smooth one that says nothing, so take the P2 and say so in the handoff.
 
 **Name the risk on every concept.** A concept list where everything is presented as a winner is a sales document, not a strategy document, and the buyer stops trusting it by concept four.
 
@@ -115,6 +132,20 @@ Ad copy for approved concepts goes through **`meta-ad-copy`** or **`google-ad-co
 ---
 
 ## Step 5 - Validate before delivering
+
+**Run the gate first. It is a script, and it can refuse.**
+
+```
+python skills/uni-output/scripts/lint-ads-output.py <file> --type ad-ideas
+```
+
+Exit 1 means not deliverable. Fix every P1, re-run, and put the result line in the handoff:
+
+```
+Lint: ad-ideas 6 concepts pass (P1=0, P2=1) - FKGL 7.4
+```
+
+The lint covers field-per-line, all seven fields, hook-first, described-instead-of-written hooks, blank lines between concepts, readability grade and dashes. Everything below is what a script cannot judge.
 
 | Check | Fail = |
 |---|---|

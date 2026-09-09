@@ -9,19 +9,19 @@
       "name": "uni-standards",
       "source": "./plugins/uni-standards",
       "description": "UNI house output standard and internal QA review. Everyone installs this.",
-      "version": "0.4.0"
+      "version": "0.5.0"
     },
     {
       "name": "uni-creative",
       "source": "./plugins/uni-creative",
       "description": "Creative briefs with visual references, and ad concept ideation from competitor research.",
-      "version": "0.4.0"
+      "version": "0.5.0"
     },
     {
       "name": "uni-paid",
       "source": "./plugins/uni-paid",
       "description": "Meta and Google ad copy inside official character limits, plus Meta interest targeting.",
-      "version": "0.4.0"
+      "version": "0.5.0"
     }
   ]
 }
