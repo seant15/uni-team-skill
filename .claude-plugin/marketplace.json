@@ -28,6 +28,12 @@
       "source": "./plugins/uni-seo",
       "description": "UNI client SEO approval packets: Sheet or Drive intake, gates, local lock, client-facing Google Doc. Never publish.",
       "version": "0.1.0"
+    },
+    {
+      "name": "uni-launch",
+      "source": "./plugins/uni-launch",
+      "description": "Batch-build Meta campaigns, ad sets and ads from a creative matrix. Writes to live ad accounts, so it installs separately from the copy skills.",
+      "version": "0.1.0"
     }
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "name": "uni-launch",
+  "version": "0.1.0",
+  "description": "Batch-build Meta campaigns, ad sets and ads from a creative matrix. Writes to live ad accounts, so it installs separately from the copy skills.",
+  "author": {
+    "name": "UNI Marketing Agency"
+  },
+  "skills": "./skills/"
+}

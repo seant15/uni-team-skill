@@ -7,7 +7,7 @@
 3. Bump `version` in **both** `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json`, plus the matching entry in `.claude-plugin/marketplace.json`. If you add or remove a plugin, also update `.agents/plugins/marketplace.json`. A version bump that ships to both toolchains touches four files. Patch for a wording fix, minor for a new skill or a changed method.
 4. Rebuild the zips in `dist/` - that is how Cowork users receive it:
    ```
-   cd plugins && for p in uni-standards uni-creative uni-paid uni-seo; do zip -qr ../dist/$p.zip $p; done
+   cd plugins && for p in uni-standards uni-creative uni-paid uni-seo uni-launch; do zip -qr ../dist/$p.zip $p; done
    ```
 5. Open a PR. Say in one line what changed and what problem it solves.
 6. Sean reviews and merges. Squash merge, delete the branch.
