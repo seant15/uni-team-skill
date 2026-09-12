@@ -42,7 +42,7 @@ codex plugin add uni-standards@uni-team-skill
 | Role | Install |
 |---|---|
 | Meta media buyer | `uni-standards` + `uni-paid` + `uni-launch` |
-| Google media buyer | `uni-standards` + `uni-paid` |
+| Google media buyer | `uni-standards` + `uni-paid` (copy + lead-gen account check) |
 | Creative strategist | `uni-standards` + `uni-creative` |
 | General team / assistants | `uni-standards` |
 | SEO / content | `uni-standards` + `uni-seo` |
@@ -75,6 +75,7 @@ Cowork: Sean sends new zips, upload them again, start a new session. Claude Code
 | `meta-ad-copy` | Meta copy inside the official limits and in the client's register. Holds the locked character reference. |
 | `google-ad-copy` | Google copy written to the specific campaign type's spec - RSA, PMax, Demand Gen, Display, App all differ. |
 | `meta-targeting` | The UNI interest-web method. Expands a persona across life dimensions and two-step adjacencies, validates every interest, delivers a tiered test plan. |
+| `uni-google-ads-lead-gen-check` | Read-only lead-gen account check. Walks the 9-section optimization checklist in sheet order, then a campaign / ad group / keyword / search term / landing-page intent ladder. Proposes only. Never mutates. |
 
 ### uni-seo
 | Skill | Does |
@@ -143,7 +144,7 @@ Every skill in this repo has the same four parts. Keep it that way - see `CONTRI
 3. **The work** - the actual method.
 4. **Validation gate**, then **Self-Improvement** block.
 
-**Does a skill actually ask when it lacks information?** Yes, by design, all seven. Each names its required inputs, asks for anything missing in a single batch, restates the brief for confirmation, and refuses to invent a value it was not given. The one exception is an unattended run with nobody to answer, where the skill proceeds and puts its assumptions at the top of the deliverable rather than deadlocking.
+**Does a skill actually ask when it lacks information?** Yes, by design, all ten. Each names its required inputs, asks for anything missing in a single batch, restates the brief for confirmation, and refuses to invent a value it was not given. The one exception is an unattended run with nobody to answer, where the skill proceeds and puts its assumptions at the top of the deliverable rather than deadlocking.
 
 ---
 
@@ -164,11 +165,20 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.5.0 standards / creative / paid. `uni-seo` 0.1.0. `uni-launch` 0.1.0. Nine skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards`.
+v0.6.0 `uni-paid` (adds `uni-google-ads-lead-gen-check`). v0.5.0 `uni-standards` / `uni-creative`. `uni-seo` 0.1.0. `uni-launch` 0.1.0. Ten skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
+
+Recent additions on this local tree (newest last):
+
+- `uni-output` paid-media contract is now a script that can refuse copy, briefs, ideas, and targeting (`#3`)
+- `uni-seo` / `uni-2026-seo` - client SEO approval packet, draft only, never publishes
+- `uni-launch` / `meta-batch-launch` - batch-build a Meta creative test, everything paused (`#4`)
+- `uni-google-ads-lead-gen-check` - Google lead-gen optimization checklist + intent ladder, read-only
 
 **Not done yet:**
 - First validation pass on `interest-library.md` - all 302 rows are `unconfirmed` and none carry Meta interest IDs
-- Cowork zip + marketplace install check for `uni-seo` on a fresh seat
+- Cowork zip + marketplace install check for `uni-seo` and `uni-google-ads-lead-gen-check` on a fresh seat
+- Rebuild `dist/uni-paid.zip` after this skill merges (Cowork still reads the zip)
+- Copy of `uni-google-ads-lead-gen-check` into the Agentic OS T2 `.claude/skills/` working set (canonical stays this repo)
 - Migration of the remaining skills from Sean's personal account
 - Second PR reviewer
 - Team or Enterprise plan later, so org-level install can replace per-seat setup. See INSTALL.md.
