@@ -1,0 +1,64 @@
+# Matrix spec. Fill it, then:
+#   python3 ../scripts/build_bulk_xlsx.py matrix-spec.yaml -o batch.xlsx
+#
+# Every ID column in the output is left blank, which tells Meta to CREATE rather than update.
+# Campaign and ad status are forced to PAUSED. Budgets are converted to minor units for you.
+#
+# Shape below is a clone-and-extend batch: one new ad set carrying new creatives, budget owned
+# by the campaign. See references/worked-example.md for how this plays out against a real account.
+
+client: ACME                      # short client code, used in every generated name
+launch_date: "09122026"           # MMDDYYYY, goes into every ad name
+target_cpa: 28                    # required - drives the learning-phase gate
+
+account:
+  ad_account_id: act_XXXXXXXXXXXX
+  page_id: "PASTE_PAGE_ID"
+  instagram_id: "PASTE_IG_ID"     # omit if no Instagram placements
+  pixel_id: "PASTE_PIXEL_ID"
+
+campaign:
+  objective: OUTCOME_SALES        # ODAX names only
+  theme: q4-prospecting
+  geo_code: US
+  period: 202609
+  budget_level: CBO               # CBO = campaign owns the budget, cloned ad sets carry none
+  daily_budget: 300               # dollars; converted to minor units automatically
+  bid_strategy: LOWEST_COST_WITHOUT_CAP
+  buying_type: AUCTION
+  special_ad_categories: ""       # leave blank ONLY if none genuinely apply
+  countries: US
+  age_min: 25
+  age_max: 65
+  start_time: "2026-09-12T00:00:00-0700"
+
+defaults:
+  optimization_goal: OFFSITE_CONVERSIONS
+  billing_event: IMPRESSIONS
+  conversion_event: PURCHASE
+  placements: ""                  # blank = Advantage+ placements
+  link: https://example.com/collections/all
+  cta: SHOP_NOW
+  # On a clone, paste copy and url_tags verbatim from the template ad in the same campaign.
+  # Do not write fresh UTMs - that forks the client's reporting silently.
+  url_tags: utm_source={{site_source_name}}&utm_medium=paid_fb&utm_campaign={{campaign.name}}&utm_content={{ad.name}}
+  copy:
+    headline: PASTE_FROM_TEMPLATE_AD
+    primary_text: PASTE_FROM_TEMPLATE_AD
+    description: PASTE_FROM_TEMPLATE_AD
+
+audiences:
+  - type: CLONE                   # cloned from an existing ad set, targeting unchanged
+    label: Batch-Name
+    custom_audiences: ""
+
+creatives:
+  - ad_name: First Concept
+    format: VID
+    image_file: "ACME_First_Concept.mp4"   # must match the uploaded filename EXACTLY, extension included
+  - ad_name: Second Concept
+    format: VID
+    image_file: "ACME_Second_Concept.mp4"
+  - ad_name: Hero Still
+    format: IMG
+    image_file: "ACME_Hero_Still.png"

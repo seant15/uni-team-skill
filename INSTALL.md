@@ -14,10 +14,11 @@ Pick your row, follow it, ignore the rest.
 
 | Role | Install |
 |---|---|
-| Meta media buyer | `uni-standards` + `uni-paid` |
+| Meta media buyer | `uni-standards` + `uni-paid` + `uni-launch` |
 | Google media buyer | `uni-standards` + `uni-paid` |
 | Creative strategist | `uni-standards` + `uni-creative` |
 | General team, assistants | `uni-standards` |
+| SEO / content | `uni-standards` + `uni-seo` |
 
 Everyone installs `uni-standards`. It holds the output rules everything else passes through.
 
@@ -29,7 +30,7 @@ Everyone installs `uni-standards`. It holds the output rules everything else pas
 
 Preferred: add marketplace `seant15/uni-team-skill` on the Plugins page (the repo is public). If that fails, use the zip files.
 
-Zip fallback: you will get three files from Sean: `uni-standards.zip`, `uni-creative.zip`, `uni-paid.zip`. Save them somewhere you can find again, like your Downloads folder. **Do not unzip them.** Claude wants the zip as-is.
+Zip fallback: you will get zips from Sean: `uni-standards.zip`, plus `uni-creative.zip`, `uni-paid.zip`, `uni-seo.zip`, and/or `uni-launch.zip` for your role. Save them somewhere you can find again, like your Downloads folder. **Do not unzip them.** Claude wants the zip as-is.
 
 ### Step 1 - open the plugins page
 
@@ -88,6 +89,8 @@ When Sean ships a change, he sends new zip files. Upload them the same way, then
 /plugin marketplace add seant15/uni-team-skill
 /plugin install uni-standards@uni-team-skill
 /plugin install uni-paid@uni-team-skill
+/plugin install uni-seo@uni-team-skill
+/plugin install uni-launch@uni-team-skill
 ```
 
 Then either restart, or run:
@@ -184,11 +187,13 @@ Built into `dist/`:
 - `uni-standards.zip` - everyone
 - `uni-creative.zip` - creative strategist
 - `uni-paid.zip` - both media buyers
+- `uni-seo.zip` - SEO / content
+- `uni-launch.zip` - Meta buyers who build campaigns. Ships the Meta Ads MCP server.
 
 Rebuild after any change:
 
 ```
-cd plugins && for p in uni-standards uni-creative uni-paid; do zip -qr ../dist/$p.zip $p; done
+cd plugins && for p in uni-standards uni-creative uni-paid uni-seo uni-launch; do zip -qr ../dist/$p.zip $p; done
 ```
 
 Bump the version in each plugin's `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` first, or people will not be able to tell which copy they have.
