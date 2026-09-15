@@ -109,8 +109,10 @@ Never draft from a thin brief. Ask for what is missing, in one batch, then write
 | Format | When | How to produce it |
 |---|---|---|
 | **Notion (markdown)** | Internal docs, SOPs, briefs, research, anything the team works inside | Clean markdown. H2/H3 only, no H1 in body. **One blank line before and after every section heading, table, and list** - Notion renders dense blocks as a wall and nobody reads a wall. Tables over bullet walls where the content is comparative. No emoji as section markers. |
-| **Google Doc** | Anything a client reads or comments on - reports, audits, proposals, strategy docs | Written so it survives being commented on line by line. Short paragraphs, each making one point. Numbers in a table, not in prose. **Client-facing exports are plain text**: Title Case or ALL CAPS headings, space-aligned tables, no `###`, no `**`. Build in markdown, export clean. |
+| **Google Doc** | Anything a client reads or comments on - reports, audits, proposals, strategy docs | Load `uni-google-doc` before any Docs write. Prose still follows this skill. Structure follows the field-guide IR (kicker, title, deck, p/h/c/box/table): new single-tab Doc, plain skeleton, then native TITLE / headings / tables from a live `documents.get`. No `###`, no `**`, no leftover pipe tables. |
 | **Text message** | Quick updates, flags, approvals, "heads up" | Under 5 lines. One subject only. No greeting theater. Lead with the thing that changed. |
+
+When format is Google Doc, this skill owns voice, interview, and the slop ban. `uni-google-doc` owns named styles, native tables, and index safety. SEO approval packets stay on `uni-2026-seo`.
 
 Anything else - a PDF, a deck, a spreadsheet - is a **conversion of one of these three**, and needs Sean's explicit go-ahead. Do not invent a fourth format because it feels nicer.
 
@@ -236,18 +238,18 @@ Readability is a deliberately soft-edged rule: the grade formula correlates loos
 
 ### Contract 4 - Creative brief
 
-**The default output is a real Google Doc, created through the Docs API, not markdown pasted into chat.** Markdown or Notion only when the requester explicitly asks for it.
+**The default output is a real Google Doc, not markdown pasted into chat.** Load `uni-google-doc` and apply from a live `documents.get`. Markdown or Notion only when the requester explicitly asks for it.
 
 | # | Rule | P1 fail = |
 |---|---|---|
-| 1 | Doc created via `docs_create`, then structured with `docs_formatText`. Handoff includes the Doc URL. | Requester has to build the document |
-| 2 | **Heading 1** for the brief title. **Heading 2** per concept or job. **Heading 3** for `Do not`, the deadline, and any hard rule, so it separates visually. | Hard rules buried in a paragraph |
+| 1 | Doc created, then restyled by `uni-google-doc`. Handoff includes the Doc URL and the style readback line. | Requester has to build the document, or styles were guessed from a local file |
+| 2 | **Heading 1** for the brief title. **Heading 2** per concept or job. **Heading 3** for `Do not`, the deadline, and any hard rule, so it separates visually. Field-guide deliverables use `TITLE` for the document title instead - see `uni-google-doc`. | Hard rules buried in a paragraph |
 | 3 | Field labels bold: Format, Overlay, CTA, Must show, Do not, Deadline. The overlay line itself is bold, because it gets burned into the artwork. | Designer guesses what is locked |
 | 4 | **No markdown artifacts in the Doc body**: no `###`, no `**`, no pipe tables. Use Docs headings and Docs tables. | Hash symbols in a client-adjacent document |
 | 5 | One blank paragraph between blocks. One concept scannable in one screen. | Wall of text with nicer fonts |
 | 6 | A **plain-text fallback block in chat** alongside the link, so the brief survives a permissions or folder problem. | Broken link means no brief |
 
-**Highlight colour is not available.** The Docs tooling here does bold, italic, underline and headings only. Do not promise a highlight and do not fake one with brackets or caps. Heading 3 plus bold is the approved emphasis, decided 2026-09-08.
+Cursor `docs_formatText` can set heading1-6, bold, and italic. It cannot set `TITLE` or insert a native table. Do not claim a Doc is formatted from that tool alone. Do not promise a highlight. Heading 3 plus bold is the approved emphasis when the apply script is not available, decided 2026-09-08.
 
 **Images cannot be embedded** either. Visual references ship as **annotated links** - every link says what to take and what to ignore. That still satisfies `creative-brief`'s rule that references are attached rather than described, but only if the link actually resolves. Check it.
 
@@ -328,6 +330,7 @@ Run this checklist silently. Fix P1 items yourself. Report P2 items to the reque
 | 8 | Client name, dates, and currency are correct throughout | A stale client name or wrong currency |
 | 9 | Notion: blank line around every heading, table and list | Unreadable wall of blocks |
 | 10 | Paid-media deliverable: `lint-ads-output.py` ran and exited 0, and the pass line is in the handoff | Contract in Step 2b unchecked, or "checked" claimed without an exit code |
+| 11 | Google Doc format: `uni-google-doc` ran; handoff has Doc URL plus style readback, or an explicit "unstyled, script could not run" | Markdown pasted into a Doc, or styles claimed without `documents.get` |
 
 If a P1 fails, fix and re-run. Only then deliver.
 

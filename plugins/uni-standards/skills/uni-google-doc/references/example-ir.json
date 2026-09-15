@@ -1,0 +1,24 @@
+{
+  "title": "Make More of Your Black Friday Traffic",
+  "kicker": "UNI MARKETING AGENCY  /  FASHION EDITION  /  2026",
+  "deck": "Four sales opportunities worth finding before your next promotion",
+  "sections": [
+    {
+      "kicker": "01 / START HERE",
+      "heading": "Map People Before You Map Promotions",
+      "headingLevel": 1,
+      "deck": "ONE PRIMARY MESSAGE PER PERSON, AT EACH MOMENT",
+      "blocks": [
+        { "type": "p", "text": "One idea. Three sentences or fewer." },
+        { "type": "h", "text": "Keep the groups clean" },
+        { "type": "c", "text": "A check the reader can mark done." },
+        { "type": "box", "text": "START WITH COVERAGE. The load-bearing warning." },
+        {
+          "type": "table",
+          "headers": ["Priority group", "Message and destination"],
+          "rows": [["VIPs and repeat buyers", "Early access. Send to the member collection."]]
+        }
+      ]
+    }
+  ]
+}
