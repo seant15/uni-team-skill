@@ -60,7 +60,8 @@ Cowork: Sean sends new zips, upload them again, start a new session. Claude Code
 ### uni-standards
 | Skill | Does |
 |---|---|
-| `uni-output` | The house standard. Three permitted formats, the interview gate every skill implements, the typography rule, the AI-slop ban list, and the delivery gate. Holds the six golden samples. Paid-media shape is refused by `scripts/lint-ads-output.py`. |
+| `uni-output` | The house standard. Three permitted formats, the interview gate every skill implements, the typography rule, the AI-slop ban list, and the delivery gate. Holds the six golden samples. Paid-media shape is refused by `scripts/lint-ads-output.py`. Google Doc format loads `uni-google-doc`. |
+| `uni-google-doc` | Turns a field-guide IR (kicker, title, deck, p/h/c/box/table) into a native Google Doc: TITLE, headings, checkbox bullets, callout shading, real tables. Applies from a live `documents.get`. Never guesses character indexes. |
 | `uni-output-qa` | Peer review of a teammate's draft. Scores it, gives line-referenced feedback to the person, names the one habit to fix. Does not rewrite their work. |
 
 ### uni-creative
@@ -165,7 +166,7 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.6.0 `uni-paid` (adds `uni-google-ads-lead-gen-check`). v0.5.0 `uni-standards` / `uni-creative`. `uni-seo` 0.1.0. `uni-launch` 0.1.0. Ten skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
+v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.6.0 `uni-paid`. v0.5.0 `uni-creative`. `uni-seo` 0.1.0. `uni-launch` 0.1.0. Eleven skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
 
 Recent additions on this local tree (newest last):
 
@@ -173,6 +174,7 @@ Recent additions on this local tree (newest last):
 - `uni-seo` / `uni-2026-seo` - client SEO approval packet, draft only, never publishes
 - `uni-launch` / `meta-batch-launch` - batch-build a Meta creative test, everything paused (`#4`)
 - `uni-google-ads-lead-gen-check` - Google lead-gen optimization checklist + intent ladder, read-only
+- `uni-google-doc` - field-guide IR to a native Google Doc; `uni-output` Google Doc format loads it
 
 **Not done yet:**
 - First validation pass on `interest-library.md` - all 302 rows are `unconfirmed` and none carry Meta interest IDs

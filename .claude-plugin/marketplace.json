@@ -9,7 +9,7 @@
       "name": "uni-standards",
       "source": "./plugins/uni-standards",
       "description": "UNI house output standard and internal QA review. Everyone installs this.",
-      "version": "0.5.0"
+      "version": "0.6.0"
     },
     {
       "name": "uni-creative",
