@@ -99,7 +99,8 @@ def is_bullet_block(text: str) -> bool:
     lines = [ln.strip() for ln in text.strip().splitlines() if ln.strip()]
     if not lines:
         return False
-    bullets = sum(1 for ln in lines if re.match(r"^([-*\u2022]|\d+[.)])\s", ln))
+    # Middle dot is the bullet Sean ships in Meta sheets. Hyphen, asterisk, and • stay legal.
+    bullets = sum(1 for ln in lines if re.match(r"^([-*\u2022\u00b7]|\d+[.)])\s", ln))
     return bullets >= max(2, len(lines) // 2)
 
 
@@ -187,11 +188,11 @@ def lint_meta_copy(text: str, allow_emoji: bool) -> Report:
             "No '=== VARIANT n ===' blocks found. See uni-output Contract 1 for the shape."
         )
         return rep
-    if len(variants) != 5:
+    # Five is the API ceiling (2026-10-05). Pad-to-five was rejecting kits Sean ships.
+    if len(variants) > 5:
         rep.fail(
-            f"{len(variants)} variants. Meta accepts 5 primary texts per ad, and the "
-            "contract is five delivered - not a pool trimmed to five, and not a short "
-            "file. Write the missing ones or cut to five."
+            f"{len(variants)} variants. Meta accepts at most 5 primary texts per ad. "
+            "Five is the ceiling, not a quota. Do not pad, and do not exceed it."
         )
 
     for header, body in variants:
@@ -211,7 +212,12 @@ def lint_meta_copy(text: str, allow_emoji: bool) -> Report:
             )
 
         if not allow_emoji:
-            found = sorted({ord(c) for c in EMOJI_RE.findall(primary)})
+            # One trailing pointer on the CTA is the belief-ad exception. Any other emoji fails.
+            scanned = primary.rstrip()
+            pointer = "\U0001f447"
+            if scanned.endswith(pointer):
+                scanned = scanned[: -len(pointer)]
+            found = sorted({ord(c) for c in EMOJI_RE.findall(scanned)})
             if found:
                 # Report codepoints, not the glyphs - a cp1252 console cannot
                 # print them and the linter must never crash on its own findings.
@@ -236,10 +242,10 @@ def lint_meta_copy(text: str, allow_emoji: bool) -> Report:
             )
         else:
             hook_block = blocks[0]
-            if sentence_count(hook_block) > 1:
+            if sentence_count(hook_block) > 2:
                 rep.fail(
                     f"{tag}: block 1 carries {sentence_count(hook_block)} sentences. "
-                    f"The hook stands alone."
+                    f"The opening is one or two sentences, then a blank line."
                 )
             if "\n" in hook_block.strip():
                 rep.warn(f"{tag}: hook block wraps onto a second line. Tighten it.")
@@ -251,10 +257,10 @@ def lint_meta_copy(text: str, allow_emoji: bool) -> Report:
                 rep.fail(
                     f"{tag}: hook is {hook_len} chars, past the mobile fold at ~125."
                 )
-            elif hook_len > HOOK_BUDGET:
+            elif hook_len > HOOK_BUDGET and placement != "feed":
                 rep.warn(
-                    f"{tag}: hook is {hook_len} chars. Target {HOOK_BUDGET} so it "
-                    f"survives a small screen and accessibility text sizing."
+                    f"{tag}: hook is {hook_len} chars. Target {HOOK_BUDGET} on "
+                    f"Reels and Stories. Feed may run past it and must stay inside ~125."
                 )
 
         # Rule 2 - block 2 holds two sentences at most; a third sentence of body

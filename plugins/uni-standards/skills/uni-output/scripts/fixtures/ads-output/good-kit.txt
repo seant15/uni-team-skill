@@ -1,0 +1,53 @@
+=== VARIANT 1 ===
+Angle: apparel not ingest
+Length: short
+Register: 2
+Placement: feed
+PRIMARY TEXT
+Do not ingest it.
+
+Amero Gear is apparel, packed like a stack. Find your serving size.
+END PRIMARY TEXT
+Headline: Feel Stronger On Contact
+Description: Subscribe & Save 10% Off
+CTA: SHOP_NOW
+Counts: hook 17 / total 86
+
+=== VARIANT 2 ===
+Angle: belief plus bullets
+Length: long-fb
+Register: 2
+Placement: feed
+PRIMARY TEXT
+A supplement is anything you add to make something better. Your gym tank counts.
+
+So we built it to work like one, and packed it like one.
+
+· Feel stronger the moment it is on
+· Train harder, move freer
+
+Sized by your bodyweight. Free exchanges.
+
+Find your serving size 👇
+END PRIMARY TEXT
+Headline: What You Wear Is a Supplement, Add To The Work
+Description: Subscribe & Save 10% Off
+CTA: SHOP_NOW
+Counts: hook 80 / total 271
+
+=== VARIANT 3 ===
+Angle: drew own words
+Length: long-aida
+Register: 2
+Placement: feed
+PRIMARY TEXT
+You already put the work in, and the thing you wear should add to that work from the moment it is on.
+
+Drew Palacious: "It is designed to enhance what you already built."
+
+Wear it for the work you already did. Find your serving size.
+END PRIMARY TEXT
+Headline: What You Wear Is a Supplement, Add To The Work
+Description: Subscribe & Save 10% Off
+CTA: SHOP_NOW
+Counts: hook 101 / total 233

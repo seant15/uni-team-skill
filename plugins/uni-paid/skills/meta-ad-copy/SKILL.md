@@ -21,6 +21,13 @@ Do not write from "we need Meta copy for client X." Equally: **do not open with 
 2. **Assume out loud.** State what you found in the `BRIEF LOCK`, with everything inferred on the `Assuming:` line. One correction is cheaper for the buyer than six answers.
 3. **Then ask, once, only for what retrieval could not settle and that would change the copy.** Numbered, one batch.
 
+**Ask these four before the register dial.** They change the ad more than the 1-5 number does. Skip a line only when the brief already answers it.
+
+1. Creative job - founder talking about why they started, or a product demo.
+2. Scope - the whole line, or one named product.
+3. Reader - first-time cold, or someone who already knows the brand.
+4. Paste target - how many Primary text slots, how many Headline slots, and the customer-facing offer for the Description row.
+
 Mark every line as retrieved or assumed, and say where a retrieved value came from. **Never fill a gap with a plausible value** - an invented offer or an invented figure is a worse failure than a question. The full rule is in `uni-standards:uni-output` under *The interview gate*.
 
 
@@ -87,7 +94,7 @@ New arrivals just landed.
 Boutique quality your mini will actually want to wear, priced like it isn't. Shop the new collection.
 ```
 
-- **Block 1 is the hook. Exactly one sentence. Always alone, always followed by a blank line.**
+- **Block 1 is the opening. One or two sentences. Always alone, always followed by a blank line.** A short ad may open on one short line. A belief ad or a story opens wide enough to wrap to about two or three lines.
 - **Block 2 carries at most two sentences and may include the CTA.** That is the default shape.
 - **If the body needs two sentences of its own, the CTA moves to a third block.** Short copy stops at three blocks.
 - **Long copy: no paragraph over three sentences.** Bullet and feature blocks are exempt.
@@ -97,7 +104,7 @@ Boutique quality your mini will actually want to wear, priced like it isn't. Sho
 
 The cut behind "See more" is driven by rendered lines, not by a character count, so a blank line costs a whole line of the visible budget. Feed usually folds around 125 characters and a small screen with accessibility text sizing can fold by 80.
 
-**Write to 40.** That is the enforced number, because it is what survives every phone. If the first block does not work as the entire ad, the copy is not finished.
+**40 is the Reels and Stories target.** Feed may run past 40. The opening still has to land inside about 125 characters, where a normal phone folds. If the first block does not work as the entire ad, the copy is not finished.
 
 The block structure can therefore push the CTA below the fold in Feed. **That is accepted** - the person who taps "See more" is the person with intent. Two things follow: do not collapse the blocks to win the fold, and never present the block structure to a client as a performance rule. There is no public test data behind it. It is a readability and paste-ability rule, and that is enough.
 
@@ -123,7 +130,7 @@ Two structures to pick from, and say which one you used:
 | **Feature and benefit** | Hook. Then 3-4 lines, each pairing one concrete feature with the thing it does for the reader. Then the CTA. Every bullet earns its line or it gets cut. |
 | **AIDA** | Attention (the hook, inside 40 characters) → Interest (the specific mechanism or fact that makes it credible) → Desire (the outcome in their life, in their words) → Action (one CTA, no stacking). |
 
-**Deliver both.** Two or three short variants and two or three long, five total, clearly labeled. Tell the buyer to run them as separate ads, not as one ad set with mixed lengths, or the test reads nothing.
+**Deliver both lengths when the sheet has room for both.** Label each primary. Tell the buyer to run different lengths as separate ads, not as one ad with mixed lengths, or the test reads nothing. The kit below decides how many, not a fixed five.
 
 The fold applies to both. A long ad still has to earn the "See more" click.
 
@@ -131,17 +138,15 @@ The fold applies to both. A long ad still has to earn the "See more" click.
 
 **Default split when the brief names Feed plus a vertical placement:** two short on the vertical placement, one short on Feed, two long on Feed. That keeps three short against two long for the length test while giving each placement something it can actually run. Deviate when the media plan says to, and say why.
 
-**No emoji unless the buyer asked for emoji in this request.** UNI output bans them everywhere else and paid copy is not an exception by default. When he does ask (he sometimes will, for short variants), they go at the end of a block, never mid-sentence and never as a bullet, and the lint runs with `--allow-emoji` so the exemption is visible in the record rather than assumed.
+**No emoji in the body or in bullets.** A single trailing pointer on the belief ad's CTA is legal when the source ads already use one. Stories and the short ad do not get it. Any other emoji needs the buyer to ask in this request, and the lint runs with `--allow-emoji`.
 
 ### Volume and grading
 
-**Deliver exactly five variants.** Five is the platform maximum per asset type, so five is the number.
+**Deliver the sheet's slots, and never more than five.** Five is the API ceiling, not a quota. Do not pad a 3-slot sheet to five. **Do not generate a large pool and shortlist it.** If a variant cannot clear the bar below, rewrite that variant.
 
-Write five and get them right. **Do not generate a large pool and shortlist it** - nothing can tell whether that happened, and an unverifiable step is the exact failure this skill's gate exists to end. If a variant cannot clear the bar below, rewrite that variant. Do not fill the slot from a pile.
+Every primary clears all five of these:
 
-Every one of the five clears all five of these:
-
-1. The hook carries the specific thing inside **40 characters**
+1. On Reels and Stories the opening carries the specific thing inside **40 characters**. On Feed it wraps to about two or three lines and still lands inside **~125**
 2. There is a specific, verifiable thing in it - a number, a name, a mechanism. Vague ads lose.
 3. It matches the register number the client gave
 4. The brand would actually say this sentence out loud
@@ -161,6 +166,40 @@ A variant that only passes one of the three is a draft, not a candidate.
 
 Do not show the discarded fifteen unless asked. Do show the **angle** each surviving variant takes, in three words, so the buyer can pick by strategy rather than by vibe.
 
+### The kit, locked 2026-10-05
+
+This wins over the old quota of five one-line variants, and over writing a SKU spec when the creative is a belief video.
+
+**What you deliver**
+
+- One short primary. Two or three sentences. No bullets. The first sentence can be one short line.
+- One belief primary. Keep their belief opening when the sheet already has one. Then plain bullets, one short proof line, then the CTA.
+- One or two story primaries. A real user's words, then what wearing it feels like, then at most one benefit sentence. Size and the free exchange show up in one story, not in every primary.
+- Headlines match the sheet. Three is normal. A cell is one headline even when it contains a comma. `What You Wear Is a Supplement, Add To The Work` is one asset. Do not split it.
+- One description. The offer, in words a stranger can read. Do not invent a coupon code. Do not replace the offer line Sean wrote with a disclaimer.
+
+**Refresh**
+
+Start from the copy already in the sheet. Keep a belief opening that is already their voice. Cut `we sell it`, `you buy it`, and any line that says the garment does what a supplement promises. `So we built` can stay. Do not replace their opening with a new metaphor.
+
+**Whole line vs one product**
+
+A whole-line ad may name the category, the cut, and a number that is on the site. It does not name a SKU, a fabric weight, a price, or a color unless the brief names that product. When a quote's "it" is a SKU on the page, keep the sentence and do not insert the product name into the quote.
+
+**Testimonials**
+
+`Name, fact, place: "exact words."`
+
+A second sentence from the same person is the next paragraph, in quotes, without repeating the name. After the quote, say what wearing it feels like, then turn it to you. Do not mention the webpage, the layout, or where the quote sits on the page.
+
+**Length**
+
+A story paragraph is at most three sentences. One longer sentence is enough when it already reads as two or three lines. Do not add sentences to hit a count. Long copy on a standard primary is not trimmed to 1,024 characters. That cap is only an `asset_feed_spec` body. See `references/meta-text-limits.md`.
+
+**Paste shape**
+
+The buyer edits a sheet. Lead the handoff with Primary text, Headline, and Description, in that order. The `=== VARIANT ===` file is what the lint reads. Do not call a headline a title.
+
 ### Text overlay
 
 When the ad needs a text overlay on the image or video, treat it as a separate deliverable from primary text - it is read in under a second at thumbnail size.
@@ -174,7 +213,7 @@ If the request came through `creative-brief`, the overlay lines belong back in t
 
 ### Structure of the deliverable
 
-**Write the five variants to a file in this exact shape, then lint the file.** The delimiters are what make it machine-checkable; do not reword them.
+**Write the primaries to a file in this exact shape, then lint the file.** One block per primary. The delimiters are what make it machine-checkable; do not reword them.
 
 ```
 === VARIANT 1 ===
@@ -221,8 +260,8 @@ Lint: meta-copy 5/5 pass (P1=0, P2=1)
 | CTA exists for this objective in Ads Manager | Promised a button that isn't in the dropdown |
 | Every claim is on the cleared list | An unapproved performance or superlative claim |
 | Register matches the number the client gave | Elevated brand handed sales copy, or vice versa |
-| Five distinct angles, not five rewordings | Delivered one ad five times |
-| Both lengths represented, each labeled | No length test, so the test reads nothing |
+| Each primary is a different job in the kit, not a rewording of the same one | Delivered one ad several times |
+| A short and a long, when the sheet has room for both | No length test, so the test reads nothing |
 | Every claim traceable to cleared list or VOC file | Fabricated proof |
 | Zero em dashes or en dashes | House typography rule broken |
 | No banned brand words | - |

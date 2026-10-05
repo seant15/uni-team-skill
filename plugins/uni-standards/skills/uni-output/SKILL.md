@@ -171,18 +171,18 @@ Hard rules, all lintable:
 
 | # | Rule | P1 fail = |
 |---|---|---|
-| 1 | Short copy is **at least two blocks** separated by one blank line. **Block 1 is the hook, exactly one sentence, always alone.** | Hook buried in a paragraph |
+| 1 | Short copy is **at least two blocks** separated by one blank line. **Block 1 is the opening, one or two sentences, always alone.** | Hook buried in a paragraph, or three sentences in the opening |
 | 2 | **Block 2 carries at most two sentences and may include the CTA.** If the body needs two sentences of its own, the CTA moves to a third block. Short copy never exceeds three blocks. | CTA buried behind two sentences of body |
 | 3 | Long copy: **no paragraph over three sentences.** Bullet and feature blocks are exempt. | Wall of text |
 | 4 | Long copy: **the last paragraph is the CTA and nothing else**, one or two sentences, and it has to be strong. | Ad ends on a feature |
-| 5 | The hook carries the specific thing inside the **first 40 characters**. | Nothing lands before the fold |
+| 5 | Reels and Stories: the opening targets **40 characters**. Feed may run past 40 and must stay inside **~125**, where the fold is. | Opening past the mobile fold |
 | 6 | `reels` and `stories` placements deliver **short only**. Long copy is Feed only. `Length` values are `short`, `long-fb` (feature and benefit) and `long-aida`. | 900 characters on a Reel |
-| 7 | **No emoji unless the buyer asked for them in this request.** | House rule broken |
+| 7 | **No emoji in the body or in bullets.** One trailing pointer on the belief-ad CTA is legal when the source ads already use it. Any other emoji fails unless the buyer asked and the lint runs with `--allow-emoji`. | House rule broken |
 | 8 | `Counts:` present and arithmetically correct. Count, do not estimate. | Unverifiable delivery |
 | 9 | **One `Register:` value across the whole file.** The length test holds register constant so length is the only variable. | Two tests at once, reads as neither |
-| 10 | **Exactly five variants.** Five is Meta's per-ad maximum for primary text. Write five and get them right - do not draft a pool and trim it. | A short file, or an unverifiable "top five of twenty" |
+| 10 | **At most five variants.** Five is the API ceiling, not a quota. Deliver the sheet's slots. Do not pad to five, and do not draft a pool and trim it. | More than five primaries |
 
-**Three character numbers are in play and only one is enforced.** 40 is the rule - it is what survives a small screen and an accessibility text size. 125 is roughly where mobile Feed folds on a normal phone. 80 is how early it can fold on a bad one. Write to 40 and treat the other two as context.
+**Three character numbers are in play.** 40 is the Reels and Stories target. 125 is roughly where mobile Feed folds on a normal phone, and a Feed opening has to land inside it. 80 is how early a Feed can fold on a bad phone. A Feed belief line or story opening may run past 40 so it wraps to two or three lines. Long copy on a standard primary is not trimmed to 1,024 characters. That number is the dynamic-creative asset-feed cap only.
 
 **The fold trade-off, decided 2026-09-08.** Blank lines cost a rendered line each, so the two-block structure can push the CTA below "See more" in Feed. That is accepted: the person who taps See more is the person with intent. Do not silently collapse the blocks to win the fold, and do not present the block structure to a client as a performance rule. It is a readability and paste-ability rule.
 
