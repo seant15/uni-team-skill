@@ -23,6 +23,7 @@ LINTER = HERE.parent.parent / "lint-ads-output.py"
 # fixture, --type, expected exit code
 CASES = [
     ("good-copy.txt", "meta-copy", 0),
+    ("good-kit.txt", "meta-copy", 0),
     ("bad-copy.txt", "meta-copy", 1),
     ("bad-counts.txt", "meta-copy", 1),
     ("bad-five.txt", "meta-copy", 1),

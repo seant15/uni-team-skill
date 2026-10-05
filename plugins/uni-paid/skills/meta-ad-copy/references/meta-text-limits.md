@@ -22,6 +22,8 @@ Source: [Asset Feed Spec Options, Marketing API](https://developers.facebook.com
 
 **Scope caveat:** these are documented for `asset_feed_spec` - i.e. dynamic / Advantage+ creative. Meta publishes **no** stated maximum for a plain `object_story_spec` creative. Do not tell a client "the limit is 1,024" for a standard single-image ad; say the recommended range instead.
 
+**Long copy, locked 2026-10-05.** A standard primary's long story is not trimmed to 1,024. Write the story. 1,024 remains the hard stop only when that body is an `asset_feed_spec` text option, because the API rejects it there. Headlines stay at 255. Descriptions stay at 255. Do not invent a new official ceiling above 1,024.
+
 **Numbers circulating that are wrong:** 63,206 (that is the Facebook *post* limit), 2,200 (Instagram *caption* limit), "headline hard max 40" (that is a recommendation, not a cap). Do not repeat these.
 
 ## 2. Asset counts per ad - hard, API-enforced

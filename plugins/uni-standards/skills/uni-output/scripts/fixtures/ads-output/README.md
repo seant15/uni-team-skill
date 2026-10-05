@@ -11,7 +11,8 @@ same day. If a change to the linter makes a `good-*` file fail, the change is wr
 | Fixture | Type | Expect | What it pins |
 |---|---|---|---|
 | `good-copy.txt` | `meta-copy` | exit 0 | The approved short shape: hook alone in block 1, block 2 carrying body plus CTA. Two blocks and three sentences is legal. Long copy with a bullet block is legal. A complete file: five variants, one register, both lengths, zero P2. |
-| `bad-five.txt` | `meta-copy` | exit 1 | The two rules that had nothing behind them until 2026-09-09: five variants delivered, and one register across the file. Two variants at registers 3 and 5 - the shape is otherwise clean, so these are the only findings. |
+| `good-kit.txt` | `meta-copy` | exit 0 | The 2026-10-05 kit: three primaries, a two-sentence Feed opening, a Feed opening past 40 characters, middle-dot bullets, and one trailing CTA pointer. |
+| `bad-five.txt` | `meta-copy` | exit 1 | Mixed registers in one file. Two primaries is legal after 2026-10-05. The register split is what still fails. |
 | `bad-copy.txt` | `meta-copy` | exit 1 | One dense paragraph, CTA buried, emoji nobody asked for, character counts that do not match the text, seven sentences in one long-copy paragraph |
 | `bad-counts.txt` | `meta-copy` | exit 1 | The counting convention, on byte-identical primary text. `hook` is block 1 stripped; `total` is the whole primary text stripped, blank lines counted. Also pins the tolerance boundary: one character of drift forgiven, two not. Added because two documents once printed different counts for the same example and the wrong one survived on the tolerance edge. |
 | `good-targeting.txt` | `targeting` | exit 0 | Five clusters, three literal searchable names each, every row UNCONFIRMED with the Ads Manager instruction present and an interest-free fallback per cluster |
