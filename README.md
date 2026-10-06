@@ -44,6 +44,7 @@ codex plugin add uni-standards@uni-team-skill
 | Meta media buyer | `uni-standards` + `uni-paid` + `uni-launch` |
 | Google media buyer | `uni-standards` + `uni-paid` (copy + lead-gen account check) |
 | Creative strategist | `uni-standards` + `uni-creative` |
+| Media buyer filling a standing card | `uni-standards` + `uni-creative` |
 | General team / assistants | `uni-standards` |
 | SEO / content | `uni-standards` + `uni-seo` |
 
@@ -67,6 +68,8 @@ Cowork: Sean sends new zips, upload them again, start a new session. Claude Code
 ### uni-creative
 | Skill | Does |
 |---|---|
+| `uni-brand-card` | Standing brand card: account size, targets, AOV, seasonality, brand rules, brand goal. Retrieves first, asks once for anything with no source, then writes the tab. |
+| `uni-creative-card` | Standing creative card: brand standard, Drive folder, raw footage links, good examples. Same one-pass rule. Not a one-job brief. |
 | `creative-brief` | Briefs a designer can execute without follow-up questions. Visual references attached and annotated, overlay lines routed through `meta-ad-copy`. |
 | `ad-ideas` | Concepts grounded in live ad-library research. Maps the category's saturated and absent angles first, then generates against the gap. |
 
@@ -166,7 +169,7 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.6.0 `uni-paid`. v0.5.0 `uni-creative`. `uni-seo` 0.1.0. `uni-launch` 0.1.0. Eleven skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
+v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.6.0 `uni-paid`. v0.6.0 `uni-creative` (adds `uni-brand-card` and `uni-creative-card`). `uni-seo` 0.1.0. `uni-launch` 0.1.0. Thirteen skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
 
 Recent additions on this local tree (newest last):
 
