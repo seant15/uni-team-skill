@@ -169,7 +169,7 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.6.0 `uni-paid`. v0.6.0 `uni-creative` (adds `uni-brand-card` and `uni-creative-card`). `uni-seo` 0.1.0. `uni-launch` 0.1.0. Thirteen skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
+v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.6.0 `uni-paid`. v0.6.0 `uni-creative` (adds `uni-brand-card` and `uni-creative-card`). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.1.0. Thirteen skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
 
 Recent additions on this local tree (newest last):
 
