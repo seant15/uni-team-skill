@@ -34,12 +34,12 @@ Ask in one batch. Skip what is already in the thread. Never invent a site URL, a
 
 ## Step 2 - The work
 
-Read `references/client-doc-format.md` and `references/seo-gates.md` before writing.
+Read `references/client-doc-format.md`, `references/seo-gates.md`, and `references/opportunity-triage.md` before writing.
 
 1. Confirm the site. Fetch the live homepage and any URL you will rewrite. Do not write against the wrong domain.
 2. Pull the source. Sheet = outline, GSC, or calendar. Drive = full drafts. Read every file. Do not guess from titles.
 3. Lock official facts from live product and support pages only: price, size, output, warranty, support hours. Do not invent a certification, a lab test, a first-hand review, or an invoice the team never saw.
-4. Pick URLs with Search Console, not vibes. If an existing URL already ranks for the query, rewrite it. If a product page already owns the query, do not open a blog that steals it. Do not launch another "best of" on a cluster you already hold.
+4. Pick URLs with Search Console, not vibes. Classify each target first with `references/opportunity-triage.md` (page-level, finalised data, impression-weighted position). Striking distance, wrong-page, and cannibal cases usually need links or a title, not a new draft. A new URL needs all four gates. If an existing URL already ranks for the query, rewrite it. If a product page already owns the query, do not open a blog that steals it. Do not launch another "best of" on a cluster you already hold.
 5. Write the local lock first (`seo/locked/` when that folder exists). Body copy uses the hyphen `-` only. Client-visible body has no `YYYY-MM-DD` timestamps. Machine dates in JSON-LD stay in the lock file, not on the client Doc.
 6. Run the gates in `references/seo-gates.md`. Fail = do not build the client Doc.
 7. Build the Google Doc with the Docs API (headings, real tables, inline images). Workspace MCP can create and move files. It cannot be the final layout. Do not paste markdown into the Doc.
@@ -52,6 +52,8 @@ Read `references/client-doc-format.md` and `references/seo-gates.md` before writ
 | Site URL matches the live site you fetched | Packet goes to the wrong brand |
 | Every price and spec is on a live official page | Invented catalog |
 | No new URL that cannibalizes a live owner | Two pages split one query |
+| Every target URL has a verdict; a new URL passed all four gates | A writing job where the fix was links or a title |
+| GSC figures are page-level, finalised, position weighted by impressions | The plan rests on numbers that will change or that undercount |
 | Client Doc uses Heading 1/2/3, real tables, real images | Markdown paste |
 | Meta five fields and Alt lines have no links | Client sees blue keywords in the header |
 | Hyphen only, no em dash, no en dash | House typography fail |
