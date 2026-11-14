@@ -45,11 +45,12 @@ re-asking.
 
 | Rail | Use when |
 |---|---|
-| Meta Ads MCP | The agency has API access to the account. Fastest up to roughly 50 ads |
+| Meta's official ads MCP ("Facebook Ads" connector, `mcp.facebook.com/ads`) | Sean or the buyer is signed in to the connector and the account shows `is_ads_mcp_enabled=true`. One creative and one ad per call, so best up to roughly 30 ads |
 | Meta native XLSX bulk import | Ads Manager login only, or 50+ ads, or a cross-account clone |
 
-Probe the account list. Statuses other than active stop the build - report it as an account
-health problem, not a build error. Never switch rails silently.
+Probe the account list with `ads_get_ad_accounts`. Statuses other than active, or `is_ads_mcp_enabled=false`, stop
+the API rail - report it as an account health or rollout problem, not a build error. Never switch rails silently.
+The old third-party Meta MCP is retired and must not be used on any surface.
 
 ### Structure the matrix
 
@@ -81,19 +82,25 @@ new creatives in it". Handle it as its own path.
    and schedule. Change nothing that was not asked for.
 2. Read one **template ad** in the same campaign. Lift its copy, CTA, landing URL and **URL tags
    verbatim**. Writing fresh UTMs forks the client's reporting silently.
-3. Read the template ad's `creative_features_spec`. New creatives are born with every Advantage+
-   enhancement opted out, while a hand-built ad usually has eight to ten opted in. Ship without
-   comparing and the creative test is confounded before it starts. Show the buyer the gap and let
-   them choose. Flag `text_optimizations` separately - it lets Meta rewrite approved copy.
+3. Read the template ad's creative with `ads_get_creatives` (ask for `advantage_plus_creative_enhancements`).
+   On the official MCP a new inline creative can get Meta's default enhancements turned ON
+   (`additional_info.advantage_plus_creative_defaults` on the create result lists them), and a
+   hand-built ad may carry a different set. Ship without comparing and the creative test is
+   confounded before it starts. Show the buyer the gap and match it with `advantage_plus_creative_features`
+   or turn defaults off with `advantage_plus_creative_defaults=OFF`. Flag `text_optimizations` separately -
+   it lets Meta rewrite approved copy.
 4. Build the new ad set paused. Leave the original untouched.
 
-Mechanics that bite, all verified against a live account on 2026-09-11:
+Mechanics on the official MCP, from its tool descriptions (2026-11-13; confirm on the first live run):
 
 | Behaviour | Handle |
 |---|---|
-| `duplicate_adset` copies the source's ads by default | Pass `include_ads=false` |
-| It only appends a name suffix, leaving two dates in the name | Rename with `update_adset` immediately |
-| `tracking_specs` are inherited correctly | Do not hand-build them |
+| `ads_create_ad_set` takes `source_adset_id` to copy an ad set | Read the copy back and confirm no ads came with it |
+| New ad sets turn Advantage+ audience ON unless you send `advantage_audience=0` with a stated reason | Match the source ad set's setting and say which reason applies |
+| Draft mode may stage objects instead of creating them live (`status=DRAFT`) | Nothing runs until `ads_activate_entity` publishes the campaign, and that needs an explicit go |
+| `ads_create_ad` always creates PAUSED | Activation is a separate call, never part of the build |
+| Copying an ad: `source_ad_id` plus `creative={"creative_id":...}` | Pass both; it is safe in draft and live mode |
+| Renames and edits go through `ads_update_entity` | An edit to a live entity beyond a rename can pause it; read status back |
 | Meta may adjust placements for compatibility | Report it. It is Meta's rule, not a build error |
 
 ### Build order
@@ -139,7 +146,7 @@ spend. Never hand back "done".
 | File | Holds |
 |---|---|
 | `references/meta-build-limits.md` | Objectives, limits and structural caps, each tagged verified or unverified |
-| `references/asset-ingestion.md` | How creative files reach Meta, and the three traps that stop a launch |
+| `references/asset-ingestion.md` | How creative files reach Meta on the official MCP, and the traps that stop a launch |
 | `references/naming-and-matrix.md` | The naming convention, matrix expansion, learning-phase math |
 | `references/xlsx-bulk-import.md` | The XLSX rail: columns, creative rules, cross-account cloning |
 | `references/troubleshooting.md` | Every error seen in production, with the fix |

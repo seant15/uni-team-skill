@@ -92,7 +92,8 @@ Cowork: Sean sends new zips, upload them again, start a new session. Claude Code
 |---|---|
 | `meta-batch-launch` | Builds a whole creative test at once - clones an ad set, uploads the assets, names every ad to the standard, and gates the matrix on learning-phase arithmetic before anything is created. Everything is built paused. |
 
-`uni-launch` **writes to live ad accounts** and ships a Meta Ads MCP server, so it is deliberately
+`uni-launch` **writes to live ad accounts** through Meta's official ads MCP (add the "Facebook Ads"
+connector in Claude; the plugin no longer ships its own MCP server), so it is deliberately
 a separate install from `uni-paid`. Take it only if you build campaigns. Writing copy does not
 require it.
 
@@ -170,7 +171,7 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.7.0 `uni-paid` (adds `uni-meta-ads-audit`). v0.6.0 `uni-creative` (adds `uni-brand-card` and `uni-creative-card`). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.1.0. Fourteen skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
+v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.7.0 `uni-paid` (adds `uni-meta-ads-audit`). v0.6.0 `uni-creative` (adds `uni-brand-card` and `uni-creative-card`). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.2.0 (official Meta ads MCP). Fourteen skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
 
 Recent additions on this local tree (newest last):
 
