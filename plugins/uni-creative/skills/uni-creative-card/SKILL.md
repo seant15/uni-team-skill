@@ -5,14 +5,14 @@ description: >
   folder, raw footage with links, and a few good examples. Use when someone
   says creative card, creative standard, footage library, or where designers
   should pull assets. Retrieves first, asks once for anything with no source,
-  then writes the full tab. Does not brief one ad and does not write ad copy.
+  then writes the full card (a ClickUp doc in the client folder). Does not brief one ad and does not write ad copy.
 ---
 
 # Creative card
 
 Designers fail when the brand rule, the files, and the good examples live in different places. This card is that index. It is not a one-job brief.
 
-This is not `creative-brief` (one execution brief, with a deadline and an assignee) and not `meta-ad-copy`. The numbers a buyer must not guess are `uni-brand-card`. On a new client, run both and write both tabs in the same update.
+This is not `creative-brief` (one execution brief, with a deadline and an assignee) and not `meta-ad-copy`. The numbers a buyer must not guess are `uni-brand-card`. On a new client, run both and write both cards in the same update.
 
 Read [references/schema.md](references/schema.md) before you write. That file is the lock.
 
@@ -27,32 +27,32 @@ Required before a write:
 - Raw footage links, or a confirmed "there is no library"
 - One good example, or a confirmed "there is none"
 
-If any of those is missing, do not write the sheet. Send one message listing only the gaps. If you are also filling the brand card, put that skill's open cells in the same message.
+If any of those is missing, do not write the card. Send one message listing only the gaps. If you are also filling the brand card, put that skill's open cells in the same message.
 
 An empty Drive search is not confirmation. Ask: "I did not find a footage library. Is there a folder I should use, or is there none?"
 
 Do not clear a "confirm before overlay" claim yourself. Ask.
 
-Workbook: in the private OS, read `memory/reference_uni-client-cards.md`. Anywhere else, ask once for the spreadsheet URL if it is not already in the thread. Do not create a second workbook.
+Card home: a ClickUp doc named `Creative Card || {Client}` in the client's ClickUp folder (`DELIVERY -> {Name}`). If the doc is missing, create it there from the schema. Do not use a Google Sheet; the old review workbook is retired.
 
 ## Step 2 - One write
 
 Write only after the required pieces are sourced or answered.
 
-New client: add `{Client} Creative` and, in the same update, the account tab from `uni-brand-card`. Do not edit existing tabs.
+New client: create `Creative Card || {Client}` and, in the same update, `Brand Card || {Client}` from `uni-brand-card`. Do not edit any other client's card.
 
-Existing tab: fill empty cells only. Never replace a value that is already there.
+Existing card: fill empty cells only. Never replace a value that is already there.
 
-Links use `=HYPERLINK(url,"Open")`. No client email or phone. No evergreen-ban row.
+Links are markdown links: `[Open](url)`. No client email or phone. No evergreen-ban row.
 
 ## Step 3 - Check before you say it is done
 
 - Four blocks, in order, with the columns in the schema.
 - The removed row and the rights column are absent.
 - No guessed file, quote, or claim.
-- Filled cells on older tabs are unchanged.
+- Values already on the card are unchanged.
 - ASCII hyphen only.
-- A new client has both tabs.
+- A new client has both card docs in its ClickUp folder.
 
 Then stop. Do not open `creative-brief` unless the user asks for a specific ad.
 
