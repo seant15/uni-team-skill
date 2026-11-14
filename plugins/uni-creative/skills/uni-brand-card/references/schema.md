@@ -2,12 +2,11 @@
 
 Locked 2026-10-06. Do not add a column or a field that this file does not list.
 
-## Tab
+## Doc
 
-- Tab name: `{Client} Account`
-- Row 1: `{Client} - Account card`
-- Row 2: blank
-- Row 3: `Field` | `Value`
+- Home: ClickUp doc `Brand Card || {Client}` in the client folder (`DELIVERY -> {Name}`). Card home moved from the Google Sheet on 2026-11-13.
+- Title line: `{Client} - Brand card`
+- One table: `Field` | `Value`
 - No Status column. No Source column.
 
 ## Fields, in this order
@@ -40,15 +39,15 @@ After the fields, one blank row, then:
 
 Allowed notes, only when a source states them: platforms, site, store, ClickUp as `DELIVERY -> {Name}`, a weekly-check line, a proof window.
 
-Do not put a client email or phone on the sheet.
+Do not put a client email or phone on the card.
 
 A weekly-check target, a case-study ROAS, or a daily budget stays in Context. It becomes Target CPA, Target ROAS, AOV, or Brand goal only after the user confirms that exact value in this run.
 
 ## Write rules
 
-- Sheet language is English.
+- Card language is English.
 - ASCII hyphen only. No em dash. No en dash.
-- New client: add this tab and the creative tab. Do not edit any other tab.
-- Existing tab: write empty cells only. Never replace a cell that already has a value.
+- New client: create this doc and the creative card doc. Do not edit any other client's card.
+- Existing card: write empty cells only. Never replace a cell that already has a value.
 - A conflict between a source and a filled cell is a question, not an overwrite.
-- Do not create a second workbook.
+- One brand card per client. Do not create a second doc; do not write cards to a Google Sheet.

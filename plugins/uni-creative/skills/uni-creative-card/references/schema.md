@@ -2,11 +2,11 @@
 
 Locked 2026-10-06. Do not add a column or a block that this file does not list.
 
-## Tab
+## Doc
 
-- Tab name: `{Client} Creative`
-- Row 1: `{Client} - Creative card`
-- Then the four blocks below, in this order, each with one blank row before it except the first.
+- Home: ClickUp doc `Creative Card || {Client}` in the client folder (`DELIVERY -> {Name}`). Card home moved from the Google Sheet on 2026-11-13.
+- Title line: `{Client} - Creative card`
+- Then the four blocks below, in this order, each a heading followed by its table.
 
 ## 1. CREATIVE STANDARD
 
@@ -22,7 +22,7 @@ Header row: `DRIVE`
 
 Columns: `What` | `Link` | `Notes`
 
-The link cell is `=HYPERLINK(url,"Open")`. Point at the client creative folder, the guideline, and the planner. Do not paste a folder listing into the notes.
+The link cell is a markdown link: `[Open](url)`. Point at the client creative folder, the guideline, and the planner. Do not paste a folder listing into the notes.
 
 ## 3. RAW FOOTAGE AND SOURCE FILES
 
@@ -61,10 +61,10 @@ Do not write "no footage" because a search came back empty. Ask first.
 
 ## Write rules
 
-- Sheet language is English.
+- Card language is English.
 - ASCII hyphen only.
 - Do not paste a placeholder client quote.
 - A guideline claim marked "confirm" stays marked confirm until the user clears it.
-- New client: add this tab with the brand-card tab. Do not edit other tabs.
-- Existing tab: empty cells only. Never replace a filled cell.
-- Do not create a second workbook.
+- New client: create this doc with the brand card doc. Do not edit any other client's card.
+- Existing card: empty cells only. Never replace a filled cell.
+- One creative card per client. Do not create a second doc; do not write cards to a Google Sheet.
