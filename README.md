@@ -41,7 +41,7 @@ codex plugin add uni-standards@uni-team-skill
 
 | Role | Install |
 |---|---|
-| Meta media buyer | `uni-standards` + `uni-paid` + `uni-launch` |
+| Meta media buyer | `uni-standards` + `uni-paid` (incl. Meta account audit) + `uni-launch` |
 | Google media buyer | `uni-standards` + `uni-paid` (copy + lead-gen account check) |
 | Creative strategist | `uni-standards` + `uni-creative` |
 | Media buyer filling a standing card | `uni-standards` + `uni-creative` |
@@ -79,6 +79,7 @@ Cowork: Sean sends new zips, upload them again, start a new session. Claude Code
 | `meta-ad-copy` | Meta copy inside the official limits and in the client's register. Holds the locked character reference. |
 | `google-ad-copy` | Google copy written to the specific campaign type's spec - RSA, PMax, Demand Gen, Display, App all differ. |
 | `meta-targeting` | The UNI interest-web method. Expands a persona across life dimensions and two-step adjacencies, validates every interest, delivers a tiered test plan. |
+| `uni-meta-ads-audit` | Read-only Meta account audit in the locked UNI section order: tracking, stats, reach, traffic cost, creative by concept, structure and learning, funnel, audience. New-creative readout per concept, attack plan where every step traces to a finding. Never mutates. |
 | `uni-google-ads-lead-gen-check` | Read-only lead-gen account check. Walks the 9-section optimization checklist in sheet order, then a campaign / ad group / keyword / search term / landing-page intent ladder. Proposes only. Never mutates. |
 
 ### uni-seo
@@ -169,7 +170,7 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.6.0 `uni-paid`. v0.6.0 `uni-creative` (adds `uni-brand-card` and `uni-creative-card`). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.1.0. Thirteen skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
+v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.7.0 `uni-paid` (adds `uni-meta-ads-audit`). v0.6.0 `uni-creative` (adds `uni-brand-card` and `uni-creative-card`). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.1.0. Fourteen skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
 
 Recent additions on this local tree (newest last):
 
@@ -178,6 +179,7 @@ Recent additions on this local tree (newest last):
 - `uni-launch` / `meta-batch-launch` - batch-build a Meta creative test, everything paused (`#4`)
 - `uni-google-ads-lead-gen-check` - Google lead-gen optimization checklist + intent ladder, read-only
 - `uni-google-doc` - field-guide IR to a native Google Doc; `uni-output` Google Doc format loads it
+- `uni-meta-ads-audit` - read-only Meta account audit, distilled from three Nov 2026 prospect audits plus one client run
 
 **Not done yet:**
 - First validation pass on `interest-library.md` - all 302 rows are `unconfirmed` and none carry Meta interest IDs
