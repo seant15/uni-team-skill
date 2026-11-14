@@ -60,8 +60,7 @@ and a cloned ad set inherits no budget of its own. `[LIVE 2026-09-11]`
 Marketing API rate limits scale with account spend and are enforced per app and per account.
 `[DOC 2026-09-11]` https://developers.facebook.com/docs/marketing-api/overview/rate-limiting/
 
-Campaign creation through a partner MCP may be capped more tightly than Meta's own limit.
-`[UNVERIFIED]` figures around 100/hour and 300/day have been cited by one vendor.
+Meta's official ads MCP may apply its own per-app caps on writes. `[UNVERIFIED]` no published figure as of 2026-11-13.
 
 When a write is blocked, stop and report. Retrying in a loop burns the remaining quota and can
 extend the block.

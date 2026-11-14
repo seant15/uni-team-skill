@@ -33,7 +33,7 @@
       "name": "uni-launch",
       "source": "./plugins/uni-launch",
       "description": "Batch-build Meta campaigns, ad sets and ads from a creative matrix. Writes to live ad accounts, so it installs separately from the copy skills.",
-      "version": "0.1.0"
+      "version": "0.2.0"
     }
   ]
 }

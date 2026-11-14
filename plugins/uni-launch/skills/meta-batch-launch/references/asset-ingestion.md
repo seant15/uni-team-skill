@@ -1,85 +1,87 @@
 # Asset Ingestion - getting creative files into Meta
 
+Rail: Meta's official ads MCP (`https://mcp.facebook.com/ads`, the "Facebook Ads" connector in
+Claude). Tool names and limits below are taken from that server's own tool descriptions,
+checked 2026-11-13. Not yet exercised end to end on a live batch; treat the first API launch as
+the verification run and log anything that differs in `troubleshooting.md`.
+
 The step that breaks most often on a real batch launch. Read this before promising a timeline.
 
 ## The core constraint
 
-The Meta Ads MCP runs as a hosted service. It cannot see files on your laptop, on the media
-buyer's machine, or in Claude's own workspace. Every asset must reach Meta by one of:
+The MCP is hosted by Meta. It cannot read files on a laptop, in a Drive folder, or in the
+model's workspace by path. Every asset reaches Meta by one of:
 
-| Route | Tool | Works for |
+| Route | Tools | Works for |
 |---|---|---|
-| Public URL | `bulk_upload_ad_videos` / `bulk_upload_ad_images` | assets already on a CDN |
-| Cloud storage file id | `upload_ad_video_file` (`drive_file_id` / `dropbox_file_id`) | private Drive / Dropbox files |
-| Whole cloud folder | `create_creatives_from_drive_folder` / `..._dropbox_folder` | a folder of mixed images and video |
-| Base64 bytes | `upload_ad_image` (`image_base64`) | small images only |
-| Private Pipeboard URL | upload at `pipeboard.co/creatives`, pass the URL | confidential assets |
+| Public URL | `ads_creative_upload_media` with `upload_source=URL`, `media_type`, `media_url` | assets already on a public CDN |
+| File the model can read (sandbox, or downloaded from Drive / Dropbox / Canva first) | `ads_create_upload_url` -> `curl` POST the bytes -> `ads_finalize_upload` | private client files. The default route |
+| Local file picked by the user | `ads_creative_upload_media` with `upload_source=LOCAL_FILE` (only where the client shows MCP Apps) | one-off uploads from the user's machine |
 
-**Never base64 a video.** A 25 MB mp4 becomes ~34 MB of base64 and will blow the context window
-long before it reaches Meta. Videos go by URL or cloud file id, full stop.
+Limits on the upload-URL route: images up to 30 MiB, videos up to 100 MiB, one URL per file,
+MIME types `image/jpeg`, `image/png`, `image/gif`, `video/mp4`, `video/quicktime`.
+
+Drive, Dropbox and Canva **share links do not work as `media_url`**: they return a sign-in page
+or an HTML interstitial, not the bytes. Download the file with the Drive connector (or ask for
+it), then use the upload-URL route.
 
 Client creative is not made public to work around this. If no private route is available, say so
 and ask where the assets can be put, rather than sharing a client's folder to the open web.
 
-## Trap 1: the MCP needs its OWN cloud-storage connection
+## Trap 1: files without an extension
 
-Claude having a Google Drive connector does **not** give the Meta Ads MCP access to Drive. They are
-separate authorizations. A folder call fails with:
-
-> No Google Drive connection found. Connect Google Drive at https://pipeboard.co/connections
-
-The fix is on the user's side: connect Drive (or Dropbox) at `pipeboard.co/connections`. Check
-whoever's account owns the folder can actually see it - agency folders are often owned by a
-teammate, not by the person doing the connecting.
-
-## Trap 2: files without an extension fail as "unsupported format"
-
-Assets exported straight into Google Drive frequently arrive with **no file extension** - Drive
-metadata shows `fileExtension: ""` even though `mimeType` is `video/mp4`. Meta types the upload
-off the filename, so every one of them fails with:
-
-> The video you're trying to upload is in a format that isn't supported.
-
-This is not a codec problem and re-encoding will not fix it. The fix:
+Assets exported straight into Google Drive often arrive with **no file extension** - Drive
+metadata shows `fileExtension: ""` even though `mimeType` is `video/mp4`. Meta types uploads from
+the name. On the upload-URL route pass the real name with its extension and the MIME type
+yourself:
 
 ```
-upload_ad_video_file(
-  account_id=..., drive_file_id=...,
-  filename="CLIENT_Ad_Name.mp4",   # supply the extension yourself
-  mime_type="video/mp4"
-)
+ads_create_upload_url(ad_account_id=..., file_name="CLIENT_Ad_Name.mp4",
+                      mime_type="video/mp4", file_size=<bytes from stat>)
 ```
 
-Check `fileExtension` on every Drive asset before a batch. When it is empty, skip the folder call
-and upload file by file with an explicit filename. Tell the editor to keep extensions on export -
-it saves a whole round trip next time.
+Rename the downloaded file to carry the extension before you stat and upload it. Tell the editor
+to keep extensions on export - it saves a round trip next time.
 
-## Trap 3: the folder call is all-or-nothing
+## Trap 2: one file per URL, one finalize per token
 
-`create_creatives_from_drive_folder` uploads **every** asset in the folder. There is no include or
-exclude list. When some creatives in the folder were cancelled, either:
-
-- accept the extra assets (they sit unused in the ad account library, harmless), or
-- upload the wanted files one at a time by `drive_file_id`.
-
-Say which one you did. Unused library assets are cheap, but an unexplained extra asset in a client
-account looks like a mistake.
+Each `ads_create_upload_url` call is good for one file. Each `completion_token` is finalized once.
+Finalizing a video twice creates two videos: if a video finalize fails without a clear error,
+check `ads_get_ad_videos` for the file name before calling it again. URLs expire (`expires_at`);
+ask for a new one rather than reusing.
 
 ## Videos process asynchronously
 
-`upload_ad_video_file` returns a `video_id` immediately, but Meta is still transcoding. Poll
-`get_ad_video(account_id, video_id)` until `video_status` is `ready` before building a creative
-against it. Referencing a video that is still processing fails with "Referenced item unavailable"
-(subcode 3858794) - and `dry_run` does **not** catch it, because Meta's validate-only pass is
-lighter than its live create pass.
+`ads_finalize_upload` returns an image `hash` straight away, but a video comes back as
+`video_id` with a `video_status` that is still transcoding. Poll
+`ads_get_ad_videos(ad_account_id, video_ids=[...])` until `status.video_status` is `ready` before
+`ads_create_creative` references it. A creative built on a video that is not ready fails. If the
+status is `error`, `upload_failed` or `expired`, stop polling and restart the upload.
+
+## There are no bulk create tools
+
+The official MCP creates one creative and one ad per call. A 12-ad matrix is 12
+`ads_create_creative` calls and 12 `ads_create_ad` calls. Plan for it, and build the first one end
+to end before looping (SKILL.md, Build order). For 50+ ads use the XLSX rail instead.
+
+Variants that used to need separate ads can live in one creative: `multi_media` (2-10 images or
+videos, Meta picks per impression) and `primary_texts` / `headlines` / `descriptions` (up to 5
+each, Sales / Leads / Engagement / Awareness objectives only). Do not use this to hide a creative
+test: a concept test still needs one concept per ad so results split.
+
+## URL parameters are set at creation
+
+`url_tags` on `ads_create_creative` cannot be added after the creative exists. Copy them verbatim
+from the template ad before creating anything.
 
 ## Order of operations that works
 
 ```
-1. Verify every asset's extension and location
-2. Upload images   -> image_hash   (fast, synchronous)
-3. Upload videos   -> video_id     (async)
-4. Poll video status until ready
-5. bulk_create_ad_creatives
-6. bulk_create_ads
+1. Verify every asset's extension, size and location
+2. Images: upload -> finalize -> image_hash         (synchronous)
+3. Videos: upload -> finalize -> video_id           (async)
+4. Poll ads_get_ad_videos until every video is ready
+5. ads_create_creative, one per ad (url_tags, instagram_user_id, Advantage+ choices set here)
+6. ads_create_ad, one per ad, under the paused ad set
+7. Read back every object; publish only on an explicit go (ads_activate_entity)
 ```

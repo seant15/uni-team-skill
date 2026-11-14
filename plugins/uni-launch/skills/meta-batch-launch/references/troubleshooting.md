@@ -8,12 +8,13 @@
 | "Pixel not found" | Pixel belongs to another account | Share it via Business Settings, or use the account's own pixel |
 | "Image hash not found" | Hash is from a different ad account | Re-upload the image to this account and use the new hash |
 | "Filename not provided" | Case or extension mismatch | Match the filename character-for-character; check the zip actually contains it |
-| "The video you're trying to upload is in a format that isn't supported" | The cloud-storage file has **no extension** (`fileExtension: ""`), so Meta cannot type it. Not a codec problem | Upload per file with `upload_ad_video_file` passing explicit `filename` (with `.mp4`) and `mime_type` |
-| "No Google Drive connection found" | The MCP's own cloud-storage authorization is missing. Claude's Drive connector is a different thing | User connects Drive/Dropbox at `pipeboard.co/connections`, using an account that can see the folder |
-| "Referenced item unavailable" (3858794) | Video still transcoding, or a hash from another account | Poll `get_ad_video` until `video_status: ready`, then retry. `dry_run` will not catch this |
-| New ads have no Advantage+ enhancements | Creatives default to all `OPT_OUT`; nothing is inherited | Pass `creative_features_spec` matching the template ad, or state clearly that enhancements are off |
-| Duplicated ad set arrived full of old ads | `include_ads` defaults to true | Re-duplicate with `include_ads=false`, delete the wrong copy |
-| Duplicated ad set name carries two dates | `duplicate_adset` only appends a suffix | Rename with `update_adset` immediately after |
+| "The video you're trying to upload is in a format that isn't supported" | The file has **no extension** (`fileExtension: ""`), so Meta cannot type it. Not a codec problem | Rename with the extension, then `ads_create_upload_url` with the full `file_name` and `mime_type` |
+| Upload by `media_url` fails on a Drive / Dropbox link | Share links return a sign-in page, not bytes | Download with the Drive connector, then use `ads_create_upload_url` + `ads_finalize_upload` |
+| Two copies of the same video in the library | A video `completion_token` was finalized twice | Check `ads_get_ad_videos` by name before re-finalizing; delete the spare in Ads Manager |
+| "Referenced item unavailable" (3858794) or creative create fails on a video | Video still transcoding, or a hash from another account | Poll `ads_get_ad_videos` until `video_status` is `ready`, then retry |
+| New ads carry different Advantage+ enhancements from the template | Official MCP turns default enhancements on for new inline creatives where the account allows | Read `advantage_plus_creative_defaults` on the result; match the template with `advantage_plus_creative_features` or set defaults OFF |
+| Objects show `status=DRAFT` and nothing delivers | Account is in draft mode; creates were staged | Review with `ads_get_ad_entities object_state=draft`, then publish with `ads_activate_entity` only on an explicit go |
+| Copied ad set name is wrong | Copy keeps or suffixes the source name | Rename with `ads_update_entity` immediately after |
 | "Cannot update field" | Objective or Buying Type is immutable | Create a new campaign |
 | Ad set budget rejected | Campaign uses CBO | Blank the ad-set budget columns |
 | Budget is 100× wrong | Minor-unit confusion | Budgets are integer cents. $50/day = `5000`. Read the created object back |

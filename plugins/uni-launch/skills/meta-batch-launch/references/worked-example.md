@@ -1,5 +1,9 @@
 # Worked example - a clone-and-extend launch
 
+> Ran on 2026-09-11 through a third-party Meta MCP that UNI has since retired. Tool names and the
+> Drive-authorisation failure below belong to that server. The decisions, the budget arithmetic and the
+> file-extension trap still apply on Meta's official ads MCP; see `asset-ingestion.md` for its tools.
+
 A real launch, anonymised. Client is "Client A", a DTC jewellery brand. Every id is fake. The
 sequence, the failures and the decisions are exactly as they happened, on 2026-09-11.
 
