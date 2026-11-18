@@ -138,7 +138,7 @@ The fold applies to both. A long ad still has to earn the "See more" click.
 
 **Default split when the brief names Feed plus a vertical placement:** two short on the vertical placement, one short on Feed, two long on Feed. That keeps three short against two long for the length test while giving each placement something it can actually run. Deviate when the media plan says to, and say why.
 
-**No emoji in the body or in bullets.** A single trailing pointer on the belief ad's CTA is legal when the source ads already use one. Stories and the short ad do not get it. Any other emoji needs the buyer to ask in this request, and the lint runs with `--allow-emoji`.
+**No emoji in the body or in bullets, outside D2C promo mode (below).** A single trailing pointer on the belief ad's CTA is legal when the source ads already use one. Stories and the short ad do not get it. Any other emoji needs the buyer to ask in this request, and the lint runs with `--allow-emoji`.
 
 ### Volume and grading
 
@@ -199,6 +199,42 @@ A story paragraph is at most three sentences. One longer sentence is enough when
 **Paste shape**
 
 The buyer edits a sheet. Lead the handoff with Primary text, Headline, and Description, in that order. The `=== VARIANT ===` file is what the lint reads. Do not call a headline a title.
+
+### D2C promo mode, locked 2026-11-18
+
+Use this mode when a direct-to-consumer store is inside a sale window (Black Friday, Cyber Monday, a holiday sale, a launch sale) and the site carries a live offer stack. It wins over the elevated defaults above for that window only. It was learned from copy a buyer rewrote by hand after the default output read too quiet for a sale week.
+
+**Read the live account first.** Before writing, pull the brand's active ads (primary texts, headlines, descriptions, landing URLs) and treat what the buyer already shipped as the style reference. After launch, save the shipped copy word for word in the client folder as the reference for the next round.
+
+**Shape: one pool per product line, not one text per creative.** One flexible ad per line. Every creative in that line shares the same pool, so no text is written for a single image.
+
+| Slot | What goes in it |
+|---|---|
+| Primary text | 2 to 5. At least one short and one long. Every primary must be true for every creative in the line. |
+| Headline | 2 to 5. One is the entry price for the line ("[Line] From $X"); one is the sitewide offer plus urgency ("Up to X% Off & Extra Y% Off, Ending Soon"). Pattern-interrupt headlines are fine when the claim inside them is true. |
+| Description | 2. These are the offer slots: the gift-with-purchase line and the threshold line. Never leave them empty in a sale window. |
+
+**Offer wording**
+
+- **Entry price = the lowest price on the landing page**, read from the page, not from the hero product. A line that includes a cheaper bracelet or a cheaper chain starts at that price.
+- **Sitewide discount wording may run on every line** when the site banner states it ("Up to 70% off"). A line-specific percentage appears only when the headline names one product, and then it is that product's real discount.
+- **Stack the offers in one ad when the site stacks them.** Write each one as action, then reward, one per line: `Buy any piece → 2 free chains`, `Spend $100+ → free chain added`. Never two rewards on one line.
+- **Threshold offers say which side of the discount they count on** in the brief. Copy may promise a threshold reward on a single product only when that product clears the threshold on the side the store counts.
+
+**Urgency and tone.** Promo mode sits at register 4. "Ending soon", "Limited time" and "Black Friday ends" are fine while true. "Limited stock" only when stock is limited. Keep one premium line in the pool (positioning or a customer's words) so the account does not read as discount-only.
+
+**Emoji in promo mode.** Allowed, sparingly: at the start or end of a block, or as a bullet marker. At most one per line and four per primary, never mid-sentence. Run the lint with `--mode d2c-promo`.
+
+**Landing.** A collection page matched to the line, sorted best-selling, or a search page for the line. A single product page only when the headline names that product.
+
+**Hygiene the buyer will not catch in Ads Manager**
+
+- No literal `\n` typed into a text field; it renders as a backslash and an n.
+- A space before every opening bracket.
+- One bullet per line. Bullets run together on one line read as one long sentence on a phone.
+- Never let one line's texts or headlines sit in another line's ad. After launch, read every ad's text pool back from the account and flag any text that names a product the creative does not show.
+
+**Claims.** Material and durability words follow the product page exactly (for example "18K gold plated", "tarnish-resistant") and only where the brand card clears them. Never call a simulant stone a "diamond": US FTC Jewelry Guides, 16 CFR Part 23 (https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23, checked 2026-11-18).
 
 ### Text overlay
 

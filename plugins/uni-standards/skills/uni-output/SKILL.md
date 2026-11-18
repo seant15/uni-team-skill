@@ -177,7 +177,7 @@ Hard rules, all lintable:
 | 4 | Long copy: **the last paragraph is the CTA and nothing else**, one or two sentences, and it has to be strong. | Ad ends on a feature |
 | 5 | Reels and Stories: the opening targets **40 characters**. Feed may run past 40 and must stay inside **~125**, where the fold is. | Opening past the mobile fold |
 | 6 | `reels` and `stories` placements deliver **short only**. Long copy is Feed only. `Length` values are `short`, `long-fb` (feature and benefit) and `long-aida`. | 900 characters on a Reel |
-| 7 | **No emoji in the body or in bullets.** One trailing pointer on the belief-ad CTA is legal when the source ads already use it. Any other emoji fails unless the buyer asked and the lint runs with `--allow-emoji`. | House rule broken |
+| 7 | **No emoji in the body or in bullets.** One trailing pointer on the belief-ad CTA is legal when the source ads already use it. In `meta-ad-copy` D2C promo mode, sparing emoji are legal (lint `--mode d2c-promo`). Any other emoji fails unless the buyer asked and the lint runs with `--allow-emoji`. | House rule broken |
 | 8 | `Counts:` present and arithmetically correct. Count, do not estimate. | Unverifiable delivery |
 | 9 | **One `Register:` value across the whole file.** The length test holds register constant so length is the only variable. | Two tests at once, reads as neither |
 | 10 | **At most five variants.** Five is the API ceiling, not a quota. Deliver the sheet's slots. Do not pad to five, and do not draft a pool and trim it. | More than five primaries |
@@ -299,6 +299,8 @@ These patterns get a deliverable sent back. They are the tells that a document w
 > The green / amber / red circles in the Moves Log and Deep Dive of `golden/monthly-report.md` are permitted, and they are the *only* permitted emoji in any UNI output. They encode decision quality across every account and every buyer, which is what makes the quarterly cross-brand pull possible. Nothing else earns it.
 >
 > This exemption does not generalise. "It has a legend, so it is data" is not an argument for a new emoji anywhere else - if you think one is warranted, it goes to Sean, not into a document.
+>
+> **Second exemption, 2026-11-18: D2C promo ad copy.** Meta primary text and headlines written in `meta-ad-copy` D2C promo mode may carry sparing emoji (start or end of a block, or a bullet marker; one per line, four per primary). It covers ad copy for a store in a sale window only, never documents, reports or messages.
 >
 > Plain glyphs are not emoji and are unaffected: the verdict marks in the performance table, arrows, bullets, box-drawing. Use them freely where they carry meaning.
 - Bold applied to whole sentences
