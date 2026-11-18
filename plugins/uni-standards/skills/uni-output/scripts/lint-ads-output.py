@@ -177,7 +177,7 @@ LONG_LENGTHS = {"long-fb", "long-aida"}
 SHORT_ONLY_PLACEMENTS = {"reels", "stories"}
 
 
-def lint_meta_copy(text: str, allow_emoji: bool) -> Report:
+def lint_meta_copy(text: str, allow_emoji: bool, mode: str = "default") -> Report:
     rep = Report("meta-copy")
     check_house_typography(text, rep, "deliverable")
 
@@ -211,7 +211,34 @@ def lint_meta_copy(text: str, allow_emoji: bool) -> Report:
                 f"Use one of: short, long-fb, long-aida."
             )
 
-        if not allow_emoji:
+        # Paste hygiene, every mode (2026-11-18): these render wrong in Ads Manager.
+        if "\\n" in primary:
+            rep.fail(
+                f"{tag}: literal \\n in primary text. It shows as a backslash and an n; "
+                f"use a real line break."
+            )
+        if re.search(r"[A-Za-z0-9]\(", primary):
+            rep.warn(f"{tag}: no space before an opening bracket.")
+        for ln in primary.splitlines():
+            if ln.count("\u2192") > 1:
+                rep.warn(
+                    f"{tag}: several 'action -> reward' bullets on one line. One per line."
+                )
+                break
+
+        if mode == "d2c-promo" and not allow_emoji:
+            # D2C promo mode (2026-11-18): sparing emoji are legal. Cap per line and per primary.
+            per_primary = len(EMOJI_RE.findall(primary.replace("\ufe0f", "")))
+            if per_primary > 4:
+                rep.fail(
+                    f"{tag}: {per_primary} emoji in one primary. Promo mode allows 4, "
+                    f"at the start or end of a block or as a bullet marker."
+                )
+            for ln in primary.splitlines():
+                if len(EMOJI_RE.findall(ln.replace("\ufe0f", ""))) > 1:
+                    rep.warn(f"{tag}: more than one emoji on a line: {ln[:40]!r}")
+                    break
+        elif not allow_emoji:
             # One trailing pointer on the CTA is the belief-ad exception. Any other emoji fails.
             scanned = primary.rstrip()
             pointer = "\U0001f447"
@@ -631,7 +658,7 @@ def lint_brief(text: str) -> Report:
 # --------------------------------------------------------------------------
 
 LINTERS = {
-    "meta-copy": lambda t, a: lint_meta_copy(t, a.allow_emoji),
+    "meta-copy": lambda t, a: lint_meta_copy(t, a.allow_emoji, a.mode),
     "targeting": lambda t, a: lint_targeting(t),
     "ad-ideas": lambda t, a: lint_ad_ideas(t),
     "brief": lambda t, a: lint_brief(t),
@@ -656,6 +683,12 @@ def main() -> int:
         "--allow-emoji",
         action="store_true",
         help="only when the buyer asked for emoji in this request",
+    )
+    ap.add_argument(
+        "--mode",
+        choices=["default", "d2c-promo"],
+        default="default",
+        help="d2c-promo: sale-window copy for a D2C store; sparing emoji allowed (meta-copy only)",
     )
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()

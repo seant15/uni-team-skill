@@ -21,6 +21,8 @@ Locked 2026-10-06. Do not add a column or a field that this file does not list.
 7. Brand rules
 8. Brand goal
 
+`Brand rules` holds, for a D2C store (added 2026-11-18): approved material and durability words as the product page says them; the never-say list, each banned word with its reason (for jewelry, "diamond" for a simulant stone breaks the US FTC Jewelry Guides, 16 CFR Part 23); the offer rule outside a sale window and inside one (may offers stack, may the sitewide "Up to X%" run on every line); urgency words allowed while true; emoji yes or no; and where the last shipped ad copy is saved. One cell, written as short sentences.
+
 `Brand goal` is the field the buyer treats as the number or outcome the client cares about. Do not rename it back to a longer label.
 
 ## Removed. Do not add these back.

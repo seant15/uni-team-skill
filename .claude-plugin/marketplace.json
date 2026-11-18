@@ -9,19 +9,19 @@
       "name": "uni-standards",
       "source": "./plugins/uni-standards",
       "description": "UNI house output standard and internal QA review. Everyone installs this.",
-      "version": "0.6.0"
+      "version": "0.7.0"
     },
     {
       "name": "uni-creative",
       "source": "./plugins/uni-creative",
       "description": "Standing brand and creative cards, creative briefs with visual references, and ad concept ideation from competitor research.",
-      "version": "0.6.0"
+      "version": "0.7.0"
     },
     {
       "name": "uni-paid",
       "source": "./plugins/uni-paid",
       "description": "Meta and Google ad copy inside official character limits, Meta interest targeting, a read-only Meta account audit, and a read-only Google lead-gen account check.",
-      "version": "0.7.0"
+      "version": "0.8.0"
     },
     {
       "name": "uni-seo",
