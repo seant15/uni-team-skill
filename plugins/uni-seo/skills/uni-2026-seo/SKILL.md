@@ -58,7 +58,7 @@ Read `references/client-doc-format.md`, `references/seo-gates.md`, and `referenc
 | Meta five fields and Alt lines have no links | Client sees blue keywords in the header |
 | Hyphen only, no em dash, no en dash | House typography fail |
 | No ISO date stamp in client-visible body | Stale "as of" line |
-| FAQ is H2/H3, schema is not FAQPage / HowTo / ItemList | Gate fail |
+| FAQ is visible H2/H3; no new FAQPage, no HowTo, no ItemList added for a carousel, no self-serving Review | Gate fail |
 | Zero first-hand tests labeled draft only | "Safe to publish" lie |
 | Routed through uni-output | Slop or em dash slips the send |
 
@@ -71,4 +71,4 @@ At the end of every run, before ending:
 2. Did the user correct or reject anything meaningful?
 3. Did you discover something a future run might need?
 
-Propose changes as a diff for a pull request against `seant15/uni-team-skill` - never edit the installed copy.
+Propose changes as a pull request against `seant15/uni-team-skill` (this repo mirrors the canonical copy in the UNI Agentic OS) - never edit the installed copy.
