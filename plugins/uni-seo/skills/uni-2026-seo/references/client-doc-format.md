@@ -33,6 +33,7 @@ Do not paste markdown into a Google Doc. The client sees headings, real tables, 
 - Hyphen `-` only. No em dash (U+2014). No en dash (U+2013). Same rule as `uni-output`.
 - Client-visible body has no `YYYY-MM-DD` timestamps. Write "checked on {site}", not a retrieval date.
 - `datePublished` belongs in the local lock / JSON-LD, not on the client Doc.
+- This is a Doc rule. The published article still shows a visible Published / Last updated date that matches `datePublished` / `dateModified`.
 
 ## Photos
 
@@ -45,4 +46,4 @@ Do not paste markdown into a Google Doc. The client sees headings, real tables, 
 - Do not name competing brands on the client Doc
 - Do not invent certifications, lab tests, install times, or unaudited invoices
 - Health or dental pages need "this is not medical advice" plus linked sources
-- FAQ is headings. JSON-LD must not use FAQPage, HowTo, ItemList, MedicalWebPage, or an invented ratingValue
+- FAQ is headings. JSON-LD adds no FAQPage, HowTo, ItemList, MedicalWebPage, or invented ratingValue

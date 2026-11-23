@@ -11,7 +11,7 @@ These gates are the packet, not decoration. Fail = do not build the client Doc. 
 
 - Draft only. Do not set Shopify, WordPress, or any CMS status to live.
 - Do not invent first-hand tests, photos, scores, or `ratingValue`.
-- FAQ in the article is H2/H3. Structured data must not use FAQPage, HowTo, or ItemList.
+- FAQ in the article is H2/H3. Do not add FAQPage (no Google rich result since 2026-05-07) or HowTo (deprecated 2023). ItemList gives no rich result for articles; do not add it for display. An existing accurate block is not a fail.
 - Do not add MedicalWebPage on a health rewrite.
 - `llms.txt` is not a deliverable for this packet.
 - JSON-LD, if present, uses `@graph` plus stable `@id`. Missing schema is not an error. Invented schema is.
@@ -34,8 +34,8 @@ Conflict table (SV wins):
 
 | Topic | Softer SEO advice | SV / this packet |
 | --- | --- | --- |
-| FAQ schema | Some GEO guides allow FAQPage | Banned |
-| llms.txt | Some GEO guides treat it as a lever | Weight 0, not a deliverable |
+| FAQ schema | Some GEO guides allow FAQPage | Do not add; SV keeps a hard ban |
+| llms.txt | Some GEO guides treat it as a lever | Weight 0, not a deliverable (Google: Search does not use it) |
 | Publish | Generic SEO pipelines go live | Stop at draft |
 | First-hand evidence | Optional on a client brochure | Required to publish; missing = draft only |
 | Client Doc dates | Dated claims in the visible body | Visible body has no ISO stamp; schema may keep machine dates |
