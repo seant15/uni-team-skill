@@ -20,6 +20,8 @@ Ask in one batch. Skip what's supplied.
 
 ### The business
 
+**Cards first.** Open the client's standing cards in ClickUp before asking (rule and field map: `uni-standards:uni-output` -> *The interview gate* -> *The client's standing cards*). The Brand Card answers who buys (audience priority), the products to push and question 9 (cleared claims). The Creative Card answers question 8 (formats and footage on hand), and its Good Examples block, with each status label, is the start of question 10.
+
 1. **What does the brand sell, and what does it cost?**
 2. **Who actually buys it**, and what do they compare it against before buying?
 3. **What is genuinely different about it?** Push for something verifiable. "Better quality" is not an answer; "we're the only one that ships assembled" is.

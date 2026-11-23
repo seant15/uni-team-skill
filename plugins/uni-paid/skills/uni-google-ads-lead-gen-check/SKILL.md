@@ -19,6 +19,8 @@ Checklist source (Sheet1): `https://docs.google.com/spreadsheets/d/1RtQdRjxyXzTM
 
 The interview gate is the rule in `uni-standards:uni-output`. Ask once, in one batch. Skip what is already supplied. Never invent a customer ID, target CPL, or "main" account.
 
+**Cards first for a client we run.** Open the client's Brand Card in ClickUp before asking (rule and field map: `uni-standards:uni-output` -> *The interview gate* -> *The client's standing cards*). Its Target CPA is the target CPL band for input 3 unless the requester gives another. A prospect has no cards: ask.
+
 Required inputs:
 
 1. Which Google Ads customer to scan (name is not enough if two accounts share a brand)

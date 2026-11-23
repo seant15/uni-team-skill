@@ -31,6 +31,8 @@ Every type except Search also requires a **business name at 25 characters** - an
 
 ### Brand - required
 
+**Cards first.** Open the client's standing cards in ClickUp before asking (rule and field map: `uni-standards:uni-output` -> *The interview gate* -> *The client's standing cards*). The Brand Card answers questions 1, 3 and 4 and names the products to push; ask only for what it leaves empty.
+
 1. **What the brand sells**, in one sentence, in their words
 2. **One existing ad or landing page they consider on-brand**
 3. **Words owned and words banned**

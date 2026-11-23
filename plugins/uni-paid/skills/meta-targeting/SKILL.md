@@ -34,6 +34,8 @@ The quality of the interest web is set entirely by the quality of the persona. N
 
 ### The product
 
+**Cards first.** Open the client's standing cards in ClickUp before asking (rule and field map: `uni-standards:uni-output` -> *The interview gate* -> *The client's standing cards*). The Brand Card gives the products to push and the audience priority, including who is excluded: the persona is built inside that priority, never against it. The Strategy Card holds the customer language for questions 2 and 3. The persona questions 5 to 11 still need a real customer, so ask them.
+
 1. **What is being sold, and what does it cost?** Price bracket changes the persona more than the category does.
 2. **What problem does the buyer think they are solving?** Their framing, not the client's marketing framing.
 3. **What is the purchase trigger?** A moment, a season, a life event, a breakage, a status shift.
