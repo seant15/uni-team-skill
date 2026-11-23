@@ -1,6 +1,6 @@
 ---
 name: creative-brief
-description: Write a creative brief a designer or editor can execute without asking follow-up questions - with visual references attached, not described. Use when briefing static ads, video ads, UGC, or a full creative batch, when handing work to a freelancer or in-house designer, or when a round of creative came back wrong and the brief was the reason. Interviews for brand and offer first, sources real visual references, and pulls text-overlay lines from meta-ad-copy.
+description: Write a creative brief a designer or editor can execute without asking follow-up questions - with visual references attached, not described. Use when briefing static ads, video ads, UGC, or a full creative batch, when handing work to a freelancer or in-house designer, or when a round of creative came back wrong and the brief was the reason. Also the kickoff for a new creative task ("start a creative brief", "new creative task"). Interviews for brand and offer first, checks the client's recent creative tasks in ClickUp, sources real visual references, pulls text-overlay lines from meta-ad-copy, and files the approved brief as a ClickUp task.
 ---
 
 # Creative brief
@@ -43,6 +43,16 @@ Ask in one batch. Skip what the requester already supplied.
 ### Register
 
 14. **Elevated or sales, 1-5** - same dial as `meta-ad-copy`. Get a number. It determines whether the creative looks like a magazine page or a promotion.
+
+### Past work in ClickUp - read it before you ask question 13
+
+If ClickUp is connected, pull the last 5 tasks from the client's `Creative` list in their `[UNI] DELIVERY` folder before the interview batch goes out. Use them for three things:
+
+- **Do not repeat a recent angle.** Name the angles already briefed, so the new concept is different on purpose.
+- **Pre-fill question 13** with what those tasks say won or lost, and ask the requester to confirm it instead of asking cold.
+- **Flag an open creative task on the same account.** Two live briefs for one offer is a question for the requester, not a choice.
+
+No ClickUp connection, or no earlier creative tasks: say so in one line ("no prior creative history - this brief sets the baseline") and carry on. Never invent history.
 
 **Stop and ask** if: there is no offer; the requester wants "a few options" with no angle specified; or the brand assets don't exist yet - that is a separate job that has to happen first.
 
@@ -165,6 +175,27 @@ It checks for a real Doc URL, markdown artifacts left in the body, a missing `Do
 | No pricing or commercial terms | Out of scope for team skills |
 
 Then run **uni-output** before it leaves. A brief is a deliverable.
+
+---
+
+## Step 5 - File it in ClickUp, after approval
+
+Show the requester the finished Doc and wait for a yes. A brief nobody approved is a draft, and a draft in the designer's queue gets built.
+
+On approval, if ClickUp is connected, create one task:
+
+| Field | Value |
+|---|---|
+| List | The client's `Creative` list in their `[UNI] DELIVERY` folder |
+| Name | `Creative | Brand name | Task title` - specific, for example "Summer sale static - 3 variants" |
+| Description | The Doc link first, then the one-idea line per concept, deliverable count and deadline in plain text. No markdown symbols. |
+| Due date | The deadline from question 10 |
+| Status | `Process` |
+| Assignee | Only the person the requester named. Otherwise leave it empty. |
+
+Read the list's status names before you create the task; a status that does not exist fails the call. Confirm with the task link.
+
+No ClickUp connection: hand back the Doc link and say the task was not created. Do not describe a task that does not exist.
 
 ---
 

@@ -14,8 +14,8 @@
     {
       "name": "uni-creative",
       "source": "./plugins/uni-creative",
-      "description": "Standing brand and creative cards, creative briefs with visual references, and ad concept ideation from competitor research.",
-      "version": "0.7.0"
+      "description": "Creative briefs with visual references, filed as ClickUp tasks, and ad concept ideation from competitor research.",
+      "version": "0.8.0"
     },
     {
       "name": "uni-paid",
