@@ -17,7 +17,7 @@ Do not write from "we need Meta copy for client X." Equally: **do not open with 
 
 **Order of operations, and it is not negotiable:**
 
-1. **Retrieve first.** Read the product or collection page, the brand kit, the reviews, the last brief for this client, the ClickUp history. Most of the list below is already written down somewhere.
+1. **Retrieve first.** Start with the client's Brand Card and Creative Card in ClickUp (rule and field map: `uni-standards:uni-output` -> *The interview gate* -> *The client's standing cards*): the Brand Card answers questions 1, 3 and 4 and names the products to push and the offer rule; the Creative Card links on-brand examples for question 2. Then read the product or collection page, the brand kit, the reviews, the last brief for this client, the ClickUp history. Most of the list below is already written down somewhere.
 2. **Assume out loud.** State what you found in the `BRIEF LOCK`, with everything inferred on the `Assuming:` line. One correction is cheaper for the buyer than six answers.
 3. **Then ask, once, only for what retrieval could not settle and that would change the copy.** Numbered, one batch.
 

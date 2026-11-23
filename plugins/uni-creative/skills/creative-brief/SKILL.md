@@ -46,7 +46,7 @@ Ask in one batch. Skip what the requester already supplied.
 
 ### The client's standing cards - read them before you ask anything
 
-If ClickUp is connected, open `Brand Card || Client Name` and `Creative Card || Client Name` in the client's `[UNI] DELIVERY` folder first. They are the one home for facts this interview would otherwise ask again:
+If ClickUp is connected, open `Brand Card || Client Name` and `Creative Card || Client Name` in the client's `[UNI] DELIVERY` folder first. They are the one home for facts this interview would otherwise ask again (shared rule and full field map: `uni-standards:uni-output` -> *The interview gate* -> *The client's standing cards*):
 
 | The card already answers | So skip or pre-fill |
 |---|---|

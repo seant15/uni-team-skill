@@ -17,6 +17,8 @@ Use the same section order as the last three UNI prospect audits. Do not reorder
 
 The interview gate is the rule in `uni-standards:uni-output`. Ask once, in one batch, skip what is supplied. Never invent an account ID, a target, or a margin.
 
+**Client mode: cards first.** Open the client's Brand Card in ClickUp before asking (rule and field map: `uni-standards:uni-output` -> *The interview gate* -> *The client's standing cards*). It answers input 4 (target CPA or ROAS, AOV) and gives seasonality and the products to push, which the audit reads results against. A prospect has no cards: ask.
+
 Required inputs:
 
 1. Which ad account (ID, not only the brand name). Many brands have two accounts. List them and confirm which one carries the spend

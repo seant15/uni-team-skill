@@ -64,6 +64,27 @@ The Assuming line is the important one. It surfaces every inference in a place t
 
 **5. Never fill a gap with a plausible value.** No invented numbers, no `[TBD]` left in a shipped document, no guessing at a client's tone. If it is unknown, it is a question.
 
+### The client's standing cards - read them before you ask
+
+Every client we run has three standing cards, as docs in their `[UNI] DELIVERY` folder in ClickUp: `Brand Card || Client Name`, `Creative Card || Client Name`, `Strategy Card || Client Name`. They are the one home for the facts below. If ClickUp is connected, open them before step 1 and treat what they say as supplied.
+
+| Fact | Home |
+|---|---|
+| Target CPA, target ROAS, AOV, account size, seasonality, brand goal | Brand Card |
+| Products to push: hero, second, not pushed | Brand Card |
+| Audience priority: primary, welcome but not targeted, excluded | Brand Card |
+| Brand rules and claims: approved wording, never-say list, offer rule | Brand Card |
+| Visual rules, casting, formats and placements | Creative Card |
+| Drive folder, raw footage, source files, good examples with their status | Creative Card |
+| Diagnosis, customer language, competitors, test axes | Strategy Card |
+
+Rules for every skill:
+
+- **Name the card as the source** on the `BRIEF LOCK` line it filled. A card value is retrieved, not assumed.
+- **Ask only for what the cards leave empty.** A cell that says "not known yet" is a question, not a blank to fill.
+- **Never edit a card from a team skill.** A value that looks wrong, or that disagrees with the request, goes back to the requester as a question. The cards have one writer.
+- **A prospect has no cards.** Neither does a client whose folder has none yet, or a session with no ClickUp connection. Say so in one line and run the full interview.
+
 ### The stop-and-ask list
 
 Every skill names the cases where guessing is worse than asking. Those are hard stops - the skill does not proceed, even with the rest of the brief complete. Across all skills the standing hard stops are:

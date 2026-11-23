@@ -169,7 +169,7 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.7.0 `uni-paid` (adds `uni-meta-ads-audit`). v0.9.0 `uni-creative` (`creative-brief` reads the client cards and ClickUp history, and files the approved brief as a task; `uni-brand-card` and `uni-creative-card` retired 2026-11-22, the client cards are ClickUp docs now). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.2.0 (official Meta ads MCP). Twelve skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
+v0.8.0 `uni-standards` (the interview gate reads the client's standing cards first; adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.9.0 `uni-paid` (copy, targeting, audit and lead-gen check read the client cards before asking). v0.10.0 `uni-creative` (`ad-ideas` reads the client cards; `creative-brief` reads the client cards and ClickUp history, and files the approved brief as a task; `uni-brand-card` and `uni-creative-card` retired 2026-11-22, the client cards are ClickUp docs now). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.2.0 (official Meta ads MCP). Twelve skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
 
 Recent additions on this local tree (newest last):
 
