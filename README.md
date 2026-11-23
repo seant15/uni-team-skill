@@ -68,9 +68,7 @@ Cowork: Sean sends new zips, upload them again, start a new session. Claude Code
 ### uni-creative
 | Skill | Does |
 |---|---|
-| `uni-brand-card` | Standing brand card: account size, targets, AOV, seasonality, brand rules, brand goal. Retrieves first, asks once for anything with no source, then writes the tab. |
-| `uni-creative-card` | Standing creative card: brand standard, Drive folder, raw footage links, good examples. Same one-pass rule. Not a one-job brief. |
-| `creative-brief` | Briefs a designer can execute without follow-up questions. Visual references attached and annotated, overlay lines routed through `meta-ad-copy`. |
+| `creative-brief` | Briefs a designer can execute without follow-up questions. Reads the client's recent creative tasks in ClickUp first, attaches annotated visual references, routes overlay lines through `meta-ad-copy`, and files the approved brief as a ClickUp task. |
 | `ad-ideas` | Concepts grounded in live ad-library research. Maps the category's saturated and absent angles first, then generates against the gap. |
 
 ### uni-paid
@@ -171,7 +169,7 @@ Six, in `plugins/uni-standards/skills/uni-output/references/golden/`. Each carri
 
 ## Status
 
-v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.7.0 `uni-paid` (adds `uni-meta-ads-audit`). v0.6.0 `uni-creative` (adds `uni-brand-card` and `uni-creative-card`). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.2.0 (official Meta ads MCP). Fourteen skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
+v0.6.0 `uni-standards` (adds `uni-google-doc`; Google Doc format in `uni-output` loads it). v0.7.0 `uni-paid` (adds `uni-meta-ads-audit`). v0.8.0 `uni-creative` (`creative-brief` reads ClickUp history and files the approved brief as a task; `uni-brand-card` and `uni-creative-card` retired 2026-11-22, the client cards are ClickUp docs now). `uni-seo` 0.2.0 (adds `opportunity-triage` reference). `uni-launch` 0.2.0 (official Meta ads MCP). Twelve skills, five plugins, six golden samples, 302-interest seed library. Claude and Codex manifests both present. Paid-media lint lives in `uni-standards` (`scripts/lint-ads-output.py` can refuse a deliverable).
 
 Recent additions on this local tree (newest last):
 
