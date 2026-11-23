@@ -1,6 +1,6 @@
 ---
 name: creative-brief
-description: Write a creative brief a designer or editor can execute without asking follow-up questions - with visual references attached, not described. Use when briefing static ads, video ads, UGC, or a full creative batch, when handing work to a freelancer or in-house designer, or when a round of creative came back wrong and the brief was the reason. Also the kickoff for a new creative task ("start a creative brief", "new creative task"). Interviews for brand and offer first, checks the client's recent creative tasks in ClickUp, sources real visual references, pulls text-overlay lines from meta-ad-copy, and files the approved brief as a ClickUp task.
+description: Write a creative brief a designer or editor can execute without asking follow-up questions - with visual references attached, not described. Use when briefing static ads, video ads, UGC, or a full creative batch, when handing work to a freelancer or in-house designer, or when a round of creative came back wrong and the brief was the reason. Also the kickoff for a new creative task ("start a creative brief", "new creative task"). Interviews for brand and offer first, reads the client's Brand and Creative cards and recent creative tasks in ClickUp, sources real visual references, pulls text-overlay lines from meta-ad-copy, and files the approved brief as a ClickUp task.
 ---
 
 # Creative brief
@@ -43,6 +43,17 @@ Ask in one batch. Skip what the requester already supplied.
 ### Register
 
 14. **Elevated or sales, 1-5** - same dial as `meta-ad-copy`. Get a number. It determines whether the creative looks like a magazine page or a promotion.
+
+### The client's standing cards - read them before you ask anything
+
+If ClickUp is connected, open `Brand Card || Client Name` and `Creative Card || Client Name` in the client's `[UNI] DELIVERY` folder first. They are the one home for facts this interview would otherwise ask again:
+
+| The card already answers | So skip or pre-fill |
+|---|---|
+| Brand Card: what the brand sells, products to push, audience priority, brand rules and claims wording | Questions 1 and 4, and the claims any overlay line may use |
+| Creative Card: creative standard, Drive folder, raw footage links, good examples | Questions 2 and 3 |
+
+Use what the card says and name the card as the source. Ask only for what is empty or missing. Do not edit a card from this skill: a wrong or empty cell goes back to the requester as a question. No cards yet, or no ClickUp connection: say so in one line and run the full interview.
 
 ### Past work in ClickUp - read it before you ask question 13
 
